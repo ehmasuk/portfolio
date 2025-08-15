@@ -116,7 +116,28 @@ export const DATA = {
       href: "https://llm.report",
       dates: "April 2023 - September 2023",
       active: true,
-      description: "Developed an open-source logging and analytics platform for OpenAI: Log your ChatGPT API requests, analyze costs, and improve your prompts.",
+      description: "Developed an open-source logging and analytics platform for OpenAI.",
+      technologies: ["Next.js", "Typescript", "TailwindCSS", "Shadcn UI", "Magic UI", "Stripe"],
+      links: [
+        {
+          type: "Website",
+          href: "https://llm.report",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/dillionverma/llm.report",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/freeclip.png",
+    },
+    {
+      title: "FreeClip",
+      href: "https://llm.report",
+      dates: "April 2023 - September 2023",
+      active: true,
+      description: "Developed an open-source logging and analytics platform for OpenAI.",
       technologies: ["Next.js", "Typescript", "TailwindCSS", "Shadcn UI", "Magic UI", "Stripe"],
       links: [
         {

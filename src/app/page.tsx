@@ -1,7 +1,8 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
-import { ProjectCard } from "@/components/project-card";
+import { ProjectCard } from "@/components/ProjectCard";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
@@ -83,14 +84,11 @@ export default function Page() {
                         </div>
                         <p className="text-gray-700 dark:text-zinc-300 text-sm leading-relaxed mb-4">{workerData.description}</p>
                         <div className="flex flex-wrap gap-2">
-                          {workerData.skills.map((skill, id) => {
+                          {workerData.skills.map((skill, idx) => {
                             return (
-                              <span
-                                key={id}
-                                className="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs w-fit whitespace-nowrap shrink-0 bg-gray-50 dark:bg-zinc-700 dark:border-zinc-600 hover:bg-zinc-50 dark:hover:bg-zinc-600 dark:hover:border-zinc-500 hover:border-zinc-300 transition-colors"
-                              >
+                              <Badge className="text-xs" key={idx}>
                                 {skill}
-                              </span>
+                              </Badge>
                             );
                           })}
                         </div>
@@ -115,10 +113,10 @@ export default function Page() {
           <div className="flex flex-wrap gap-3">
             {DATA.skills.map((skill, id) => (
               <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                <div className="inline-flex gap-2 items-center justify-center rounded-md border px-2 py-1 text-sm font-medium w-fit whitespace-nowrap shrink-0 bg-gray-50 dark:bg-zinc-900 dark:border-zinc-500 dark:hover:border-zinc-500 hover:border-zinc-300 transition-colors">
+                <Badge>
                   {skill.icon}
                   {skill.name}
-                </div>
+                </Badge>
               </BlurFade>
             ))}
           </div>
@@ -127,21 +125,20 @@ export default function Page() {
       <section id="projects">
         <div className="space-y-3 w-full">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
-            <h2 className="text-2xl font-bold">My projects</h2>
+            <div className="flex justify-between items-center">
+              <h2 className="text-2xl font-bold">My projects</h2>
+              <Link
+                className="text-sm px-3 py-1 rounded border hover:bg-zinc-100 duration-300 font-medium dark:hover:bg-zinc-600 dark:hover:border-zinc-500 dark:bg-zinc-900 dark:border-zinc-500"
+                href="/projects"
+              >
+                See all
+              </Link>
+            </div>
           </BlurFade>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 mx-auto">
             {DATA.projects.map((project, id) => (
               <BlurFade key={project.title} delay={BLUR_FADE_DELAY * 12 + id * 0.05}>
-                <ProjectCard
-                  href={project.href}
-                  key={project.title}
-                  title={project.title}
-                  description={project.description}
-                  dates={project.dates}
-                  tags={project.technologies}
-                  image={project.image}
-                  links={project.links}
-                />
+                <ProjectCard dates={project.dates} title={project.title} description={project.description} image={project.image} />
               </BlurFade>
             ))}
           </div>
