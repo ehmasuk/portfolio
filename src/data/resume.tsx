@@ -50,9 +50,7 @@ export const DATA = {
     },
   ],
 
-  navbar: [
-    { href: "/", icon: HomeIcon, label: "Home" },
-  ],
+  navbar: [{ href: "/", icon: HomeIcon, label: "Home" }],
   contact: {
     email: "ehmasuk@gmail.com",
     tel: "+8801723266507",
@@ -113,45 +111,47 @@ export const DATA = {
   projects: [
     {
       title: "FreeClip",
-      href: "https://llm.report",
-      dates: "April 2023 - September 2023",
-      active: true,
-      description: "Developed an open-source logging and analytics platform for OpenAI.",
-      technologies: ["Next.js", "Typescript", "TailwindCSS", "Shadcn UI", "Magic UI", "Stripe"],
-      links: [
-        {
-          type: "Website",
-          href: "https://llm.report",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "https://github.com/dillionverma/llm.report",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
+      description: "Developed an open-source desktop screen recorder",
+      technologies: ["NextJS", "Typescript", "Tailwind"],
+      liveLink: "https://freeclip.vercel.app/",
+      sourceLink: "https://github.com/ehmasuk/freeclip",
       image: "/freeclip.png",
+      purpose: "pet",
     },
     {
-      title: "FreeClip",
-      href: "https://llm.report",
-      dates: "April 2023 - September 2023",
-      active: true,
+      title: "Course land",
       description: "Developed an open-source logging and analytics platform for OpenAI.",
-      technologies: ["Next.js", "Typescript", "TailwindCSS", "Shadcn UI", "Magic UI", "Stripe"],
-      links: [
-        {
-          type: "Website",
-          href: "https://llm.report",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "https://github.com/dillionverma/llm.report",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "/freeclip.png",
+      technologies: ["HTML", "CSS", "JS"],
+      liveLink: "https://ehcourses.netlify.app/",
+      sourceLink: "",
+      image: "/courseland.png",
+      purpose: "pet",
+    },
+    {
+      title: "Escuela De Escritura Creativa",
+      description: (
+        <>
+          Contributed as a frontend developer to{" "}
+          <a href="https://escuela-ray-bolivar-sosa.com" className="text-blue-600 underline" target="_blank">
+            this
+          </a>{" "}
+          company website
+        </>
+      ),
+      technologies: ["HTML", "CSS", "JS", "jQuery", "ReactJS", "NextJS", "Tailwind"],
+      liveLink: "https://escuela-ray-bolivar-sosa.com",
+      sourceLink: "",
+      image: "/ray.png",
+      purpose: "client",
+    },
+    {
+      title: "Eazybuy",
+      description: "Ecommerce website for learning purpose",
+      technologies: ["NextJS", "Tailwind", "Typescript", "MongoDB", "NodeJS", "Stripe"],
+      liveLink: "https://eazybuy-rho.vercel.app/",
+      sourceLink: "https://github.com/ehmasuk/eazybuy",
+      image: "/eazybuy.png",
+      purpose: "pet",
     },
   ],
 } as const;

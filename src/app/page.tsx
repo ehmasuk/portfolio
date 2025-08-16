@@ -1,12 +1,13 @@
+import ExperienceCard from "@/components/ExperienceCard";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
+import { PrimaryButton } from "@/components/PrimaryButton";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
-
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
@@ -66,39 +67,7 @@ export default function Page() {
           {DATA.work.map((workerData, index) => {
             return (
               <BlurFade key={index} delay={BLUR_FADE_DELAY * 7 + index}>
-                <div className="mb-8">
-                  <div className="relative">
-                    <div className="absolute left-[-3px] top-6 w-4 h-4 bg-gradient-to-r from-zinc-800 to-zinc-600 rounded-full border-4 border-white dark:border-zinc-900 shadow-lg hidden md:block" />
-                    <div className="text-card-foreground flex flex-col gap-6 rounded-md ml-0 md:ml-8 group transition-all duration-300 border bg-white/80 dark:bg-zinc-800/70 backdrop-blur-sm">
-                      <div className="p-6 relative">
-                        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
-                          <div className="flex-1">
-                            <div className="flex items-center gap-2">
-                              <h3 className="font-bold text-gray-900 dark:text-white group-hover:text-zinc-800 dark:group-hover:text-zinc-100 transition-colors">{workerData.company}</h3>
-                            </div>
-                            <p className="font-medium text-zinc-700 dark:text-zinc-300 text-sm mb-3">{workerData.title}</p>
-                          </div>
-                          <div className="text-sm text-gray-600 dark:text-zinc-400">
-                            {workerData.start} - {workerData.end}
-                          </div>
-                        </div>
-                        <p className="text-gray-700 dark:text-zinc-300 text-sm leading-relaxed mb-4">{workerData.description}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {workerData.skills.map((skill, idx) => {
-                            return (
-                              <Badge className="text-xs" key={idx}>
-                                {skill}
-                              </Badge>
-                            );
-                          })}
-                        </div>
-
-                        <span className="absolute w-[40%] -top-px right-px h-px bg-gradient-to-r from-blue-500/0 via-blue-500/40 to-blue-500/0 dark:from-blue-400/0 dark:via-blue-400/40 dark:to-blue-400/0"></span>
-                        <span className="absolute w-px -left-px top-[5%] h-[40%] bg-gradient-to-b from-blue-500/0 via-blue-500/40 to-blue-500/0 dark:from-blue-400/0 dark:via-blue-400/40 dark:to-blue-400/0"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <ExperienceCard company={workerData.company} title={workerData.title} start={workerData.start} end={workerData.end} description={workerData.description} skills={workerData.skills} />
               </BlurFade>
             );
           })}
@@ -127,18 +96,30 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex justify-between items-center">
               <h2 className="text-2xl font-bold">My projects</h2>
-              <Link
-                className="text-sm px-3 py-1 rounded border hover:bg-zinc-100 duration-300 font-medium dark:hover:bg-zinc-600 dark:hover:border-zinc-500 dark:bg-zinc-900 dark:border-zinc-500"
-                href="/projects"
-              >
-                See all
+
+              <Link href="/projects">
+                <PrimaryButton>See all</PrimaryButton>
               </Link>
             </div>
           </BlurFade>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 mx-auto">
+          <BlurFade delay={BLUR_FADE_DELAY * 12}>
+            <Markdown className="text-gray-700 dark:text-zinc-300">
+              I&apos;ve worked on projects for clients and companies, and also created pet projects to explore new ideas and learn new skills. Here are some of the projects I’ve built and contributed
+              to:
+            </Markdown>
+          </BlurFade>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 mx-auto">
             {DATA.projects.map((project, id) => (
-              <BlurFade key={project.title} delay={BLUR_FADE_DELAY * 12 + id * 0.05}>
-                <ProjectCard dates={project.dates} title={project.title} description={project.description} image={project.image} />
+              <BlurFade key={project.title} delay={BLUR_FADE_DELAY * 13 + id * 0.05}>
+                <ProjectCard
+                  sourceLink={project.sourceLink}
+                  liveLink={project.liveLink}
+                  title={project.title}
+                  description={project.description}
+                  image={project.image}
+                  technologies={project.technologies}
+                />
               </BlurFade>
             ))}
           </div>
@@ -146,7 +127,7 @@ export default function Page() {
       </section>
       <section id="contact">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
-          <BlurFade delay={BLUR_FADE_DELAY * 16}>
+          <BlurFade delay={BLUR_FADE_DELAY * 17}>
             <div className="space-y-3">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Get in Touch</h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
