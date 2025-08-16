@@ -1,3 +1,4 @@
+"use client";
 import ExperienceCard from "@/components/ExperienceCard";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
@@ -5,9 +6,12 @@ import { PrimaryButton } from "@/components/PrimaryButton";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { SparklesCore } from "@/components/ui/sparkles";
 import { DATA } from "@/data/resume";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import Markdown from "react-markdown";
+
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
@@ -16,25 +20,60 @@ export default function Page() {
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
-            <div className="flex-col flex flex-1 space-y-1.5 mt-5">
+            <div className="flex-col relative flex flex-1 space-y-1.5 mt-5">
               <BlurFadeText delay={BLUR_FADE_DELAY} className="text-3xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none" yOffset={8} text="Hey, I'm Eh Masuk" />
               <BlurFadeText className="max-w-[600px] text-2xl text-gray-700 dark:text-zinc-300" delay={BLUR_FADE_DELAY} text={DATA.description} />
+
+              <svg width="250" height="68" viewBox="0 0 236 68" fill="none" xmlns="http://www.w3.org/2000/svg" className="hidden absolute right-[-35px] top-[-25px] md:block">
+                <motion.path
+                  strokeDasharray="50 1000"
+                  animate={{ strokeDashoffset: [0, -2020] }}
+                  transition={{
+                    duration: 15,
+                    ease: "linear",
+                    repeat: Infinity,
+                  }}
+                  d="M0.5 0.5H89C90.6569 0.5 92 1.84315 92 3.5V29C92 30.6569 93.3431 32 95 32H148.5C150.157 32 151.5 33.3431 151.5 35V64C151.5 65.6569 152.843 67 154.5 67H235.5"
+                  stroke="url(#paint0_linear)"
+                ></motion.path>
+                <defs>
+                  <linearGradient id="paint0_linear" x1="100%" y1="0%" x2="0%" y2="0%" gradientUnits="objectBoundingBox">
+                    <stop offset="0%" stop-color="#9E00FF" stop-opacity="0" />
+                    <stop offset="50%" stop-color="#2EB9DF" />
+                    <stop offset="100%" stop-color="#2EB9DF" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
             </div>
 
             <BlurFade delay={BLUR_FADE_DELAY}>
               <div className="relative">
-                <Avatar className="size-24 pr-3 pt-3">
-                  <AvatarImage className="rounded shadow-lg" alt={DATA.name} src={DATA.avatarUrl} />
+                <Avatar className="size-24">
+                  <AvatarImage className="rounded border-gray-600" alt={DATA.name} src={DATA.avatarUrl} />
                 </Avatar>
 
-                <div className="z-0">
-                  <div className="absolute left-0 right-0 top-0 h-px bg-slate-900/[0.1] dark:bg-zinc-300/[0.1] [mask-image:linear-gradient(to_right,transparent,white_4rem,white_calc(100%-4rem),transparent)]"></div>
+                <div className="w-full h-10 relative">
+                  {/* Gradients */}
+                  <div className="absolute left-0 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+                  <div className="absolute left-0 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
+                  <div className="absolute right-8 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+                  <div className="absolute right-3 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
 
-                  <div className="absolute right-0 -top-2 -bottom-8 w-px bg-slate-900/[0.1] dark:bg-zinc-300/[0.1] [mask-image:linear-gradient(to_top,transparent,white_4rem,white_calc(100%-4rem),transparent)]"></div>
-                  <div className="absolute bottom-full right-10 -mb-px flex h-8 items-end overflow-hidden">
+                  {/* Core component */}
+                  <SparklesCore background="transparent" minSize={0.4} maxSize={1} particleDensity={2200} className="w-full h-full" />
+
+                  {/* Radial Gradient to prevent sharp edges */}
+                  <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+                </div>
+
+                <div className="z-0">
+                  <div className="absolute left-0 md:right-[-100px] right-0 top-[-10px] h-px bg-slate-900/[0.1] dark:bg-zinc-300/[0.1] [mask-image:linear-gradient(to_right,transparent,white_4rem,white_calc(100%-4rem),transparent)]"></div>
+
+                  <div className="absolute right-[-10px] md:top-[-80px] top-0 -bottom-8 w-px bg-slate-900/[0.1] dark:bg-zinc-300/[0.1] [mask-image:linear-gradient(to_top,transparent,white_4rem,white_calc(100%-4rem),transparent)]"></div>
+                  <div className="absolute top-[-25px] right-10 -mb-px flex h-4 items-end overflow-hidden">
                     <div className="flex -mb-px h-[2px] w-40 -scale-x-100">
-                      <div className="w-full flex-none blur-sm [background-image:linear-gradient(90deg,rgba(56,189,248,0)_0%,#0EA5E9_32.29%,rgba(236,72,153,0.3)_67.19%,rgba(236,72,153,0)_100%)]"></div>
-                      <div className="-ml-[100%] w-full flex-none blur-[1px] [background-image:linear-gradient(90deg,rgba(56,189,248,0)_0%,#0EA5E9_32.29%,rgba(236,72,153,0.3)_67.19%,rgba(236,72,153,0)_100%)]"></div>
+                      <div className="w-full flex-none blur-sm [background-image:linear-gradient(90deg,rgba(56,189,248,0)_0%,#0ea5e959_32.29%,rgba(236,72,153,0.3)_67.19%,rgba(236,72,153,0)_100%)]"></div>
+                      <div className="-ml-[100%] w-full flex-none blur-[1px] [background-image:linear-gradient(90deg,rgba(56,189,248,0)_0%,#0ea5e959_32.29%,rgba(236,72,153,0.3)_67.19%,rgba(236,72,153,0)_100%)]"></div>
                     </div>
                   </div>
                 </div>
@@ -43,7 +82,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section id="about">
+      <section id="about" className="!mt-2">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
           <h2 className="text-2xl font-bold">About</h2>
         </BlurFade>
