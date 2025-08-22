@@ -68,7 +68,6 @@ export default function Page() {
 
                 <div className="z-0">
                   <div className="absolute left-0 md:right-[-100px] right-0 top-[-10px] h-px bg-slate-900/[0.1] dark:bg-zinc-300/[0.1] [mask-image:linear-gradient(to_right,transparent,white_4rem,white_calc(100%-4rem),transparent)]"></div>
-
                   <div className="absolute right-[-10px] md:top-[-80px] top-0 -bottom-8 w-px bg-slate-900/[0.1] dark:bg-zinc-300/[0.1] [mask-image:linear-gradient(to_top,transparent,white_4rem,white_calc(100%-4rem),transparent)]"></div>
                   <div className="absolute top-[-25px] right-10 -mb-px flex h-4 items-end overflow-hidden">
                     <div className="flex -mb-px h-[2px] w-40 -scale-x-100">
