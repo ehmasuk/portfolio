@@ -12,7 +12,13 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Markdown from "react-markdown";
 
-const BLUR_FADE_DELAY = 0.04;
+const BLUR_FADE_DELAY = 0.1;
+
+let delayCounter = 0;
+const nextDelay = (step = 1) => {
+  delayCounter += step * BLUR_FADE_DELAY;
+  return delayCounter;
+};
 
 export default function Page() {
   return (
@@ -21,32 +27,33 @@ export default function Page() {
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
             <div className="flex-col relative flex flex-1 space-y-1.5 mt-5">
-              <BlurFadeText delay={BLUR_FADE_DELAY} className="text-3xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none" yOffset={8} text="Hey, I'm Eh Masuk" />
-              <BlurFadeText className="max-w-[600px] text-2xl text-gray-700 dark:text-zinc-300" delay={BLUR_FADE_DELAY} text={DATA.description} />
-
-              <svg width="250" height="68" viewBox="0 0 236 68" fill="none" xmlns="http://www.w3.org/2000/svg" className="hidden absolute right-[-35px] top-[-25px] md:block">
-                <motion.path
-                  strokeDasharray="50 1000"
-                  animate={{ strokeDashoffset: [0, -2020] }}
-                  transition={{
-                    duration: 15,
-                    ease: "linear",
-                    repeat: Infinity,
-                  }}
-                  d="M0.5 0.5H89C90.6569 0.5 92 1.84315 92 3.5V29C92 30.6569 93.3431 32 95 32H148.5C150.157 32 151.5 33.3431 151.5 35V64C151.5 65.6569 152.843 67 154.5 67H235.5"
-                  stroke="url(#paint0_linear)"
-                ></motion.path>
-                <defs>
-                  <linearGradient id="paint0_linear" x1="100%" y1="0%" x2="0%" y2="0%" gradientUnits="objectBoundingBox">
-                    <stop offset="0%" stop-color="#9E00FF" stop-opacity="0" />
-                    <stop offset="50%" stop-color="#2EB9DF" />
-                    <stop offset="100%" stop-color="#2EB9DF" stop-opacity="0" />
-                  </linearGradient>
-                </defs>
-              </svg>
+              <BlurFadeText delay={0} className="text-3xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none" yOffset={8} text="Hey, I'm Eh Masuk" />
+              <BlurFadeText className="max-w-[600px] text-2xl text-gray-700 dark:text-zinc-300" delay={0.5} text={DATA.description} />
+              <BlurFade delay={1} className="hidden absolute right-[-35px] top-[-25px] md:block">
+                <svg width="250" height="68" viewBox="0 0 236 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <motion.path
+                    strokeDasharray="50 1000"
+                    animate={{ strokeDashoffset: [0, -2020] }}
+                    transition={{
+                      duration: 15,
+                      ease: "linear",
+                      repeat: Infinity,
+                    }}
+                    d="M0.5 0.5H89C90.6569 0.5 92 1.84315 92 3.5V29C92 30.6569 93.3431 32 95 32H148.5C150.157 32 151.5 33.3431 151.5 35V64C151.5 65.6569 152.843 67 154.5 67H235.5"
+                    stroke="url(#paint0_linear)"
+                  ></motion.path>
+                  <defs>
+                    <linearGradient id="paint0_linear" x1="100%" y1="0%" x2="0%" y2="0%" gradientUnits="objectBoundingBox">
+                      <stop offset="0%" stop-color="#9E00FF" stop-opacity="0" />
+                      <stop offset="50%" stop-color="#2EB9DF" />
+                      <stop offset="100%" stop-color="#2EB9DF" stop-opacity="0" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </BlurFade>
             </div>
 
-            <BlurFade delay={BLUR_FADE_DELAY}>
+            <BlurFade delay={1.5}>
               <div className="relative">
                 <Avatar className="size-24">
                   <AvatarImage className="rounded border-gray-600" alt={DATA.name} src={DATA.avatarUrl} />
@@ -82,29 +89,32 @@ export default function Page() {
         </div>
       </section>
       <section id="about" className="!mt-2">
-        <BlurFade delay={BLUR_FADE_DELAY * 3}>
+        <BlurFade delay={nextDelay()}>
           <h2 className="text-2xl font-bold">About</h2>
         </BlurFade>
-        <BlurFade delay={BLUR_FADE_DELAY * 4}>
+        <BlurFade delay={nextDelay()}>
           <Markdown className="text-gray-700 dark:text-zinc-300">{DATA.summary}</Markdown>
         </BlurFade>
       </section>
 
       <section id="work">
-        <BlurFade delay={BLUR_FADE_DELAY * 5}>
+        <BlurFade delay={nextDelay()}>
           <h2 className="text-2xl font-bold">Work Experience</h2>
         </BlurFade>
         <div className="relative mt-5">
-          <div
+          <BlurFade
+            delay={nextDelay()}
             className="absolute left-1 top-0 bottom-0 w-0.5 
                 bg-gradient-to-b from-zinc-200 via-zinc-200 to-transparent 
                 dark:from-zinc-700 dark:via-zinc-800 dark:to-transparent 
                 hidden md:block"
-          ></div>
+          >
+            <div></div>
+          </BlurFade>
 
           {DATA.work.map((workerData, index) => {
             return (
-              <BlurFade key={index} delay={BLUR_FADE_DELAY * 7 + index}>
+              <BlurFade key={index} delay={nextDelay()}>
                 <ExperienceCard company={workerData.company} title={workerData.title} start={workerData.start} end={workerData.end} description={workerData.description} skills={workerData.skills} />
               </BlurFade>
             );
@@ -114,12 +124,12 @@ export default function Page() {
 
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 9}>
+          <BlurFade delay={nextDelay()}>
             <h2 className="text-2xl font-bold">Skills</h2>
           </BlurFade>
           <div className="flex flex-wrap gap-3">
-            {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
+            {DATA.skills.map((skill) => (
+              <BlurFade key={skill.name} delay={nextDelay()}>
                 <Badge>
                   {skill.icon}
                   {skill.name}
@@ -131,7 +141,7 @@ export default function Page() {
       </section>
       <section id="projects">
         <div className="space-y-3 w-full">
-          <BlurFade delay={BLUR_FADE_DELAY * 11}>
+          <BlurFade delay={nextDelay()}>
             <div className="flex justify-between items-center">
               <h2 className="text-2xl font-bold">My projects</h2>
 
@@ -140,7 +150,7 @@ export default function Page() {
               </Link>
             </div>
           </BlurFade>
-          <BlurFade delay={BLUR_FADE_DELAY * 12}>
+          <BlurFade delay={nextDelay()}>
             <Markdown className="text-gray-700 dark:text-zinc-300">
               I&apos;ve worked on projects for clients and companies, and also created pet projects to explore new ideas and learn new skills. Here are some of the projects I’ve built and contributed
               to:
@@ -149,7 +159,7 @@ export default function Page() {
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 mx-auto">
             {DATA.projects.map((project, id) => (
-              <BlurFade key={project.title} delay={BLUR_FADE_DELAY * 13 + id * 0.05}>
+              <BlurFade key={project.title} delay={nextDelay()}>
                 <ProjectCard
                   sourceLink={project.sourceLink}
                   liveLink={project.liveLink}
@@ -165,7 +175,7 @@ export default function Page() {
       </section>
       <section id="contact">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
-          <BlurFade delay={BLUR_FADE_DELAY * 17}>
+          <BlurFade delay={nextDelay()}>
             <div className="space-y-3">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Get in Touch</h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
