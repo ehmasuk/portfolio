@@ -111,7 +111,7 @@ export const DATA = {
   projects: [
     {
       title: "Bookora",
-      description: "A free online platform where users can create, write, and organize books with chapters and sections.",
+      description: "A free online platform where users can create books.",
       technologies: ["NextJS", "Tailwind", "Typescript", "MongoDB", "NodeJS"],
       liveLink: "https://bookora.vercel.app/",
       sourceLink: "https://github.com/ehmasuk/bookora-client",
@@ -145,6 +145,15 @@ export const DATA = {
       purpose: "client",
     },
     {
+      title: "Ellevo",
+      description: "Ecommerce fully functional landing page",
+      technologies: ["NextJS", "Tailwind", "Typescript", "External API", "MongoDB", "NodeJS"],
+      liveLink: "https://ellevo.vercel.app/",
+      sourceLink: "https://github.com/ehmasuk/ellevo",
+      image: "/ellevo.png",
+      purpose: "pet",
+    },
+    {
       title: "FreeClip",
       description: "Developed an open-source desktop screen recorder",
       technologies: ["NextJS", "Typescript", "Tailwind"],
@@ -162,14 +171,6 @@ export const DATA = {
       image: "/courseland.png",
       purpose: "pet",
     },
-    {
-      title: "Ellevo",
-      description: "Ecommerce fully functional landing page",
-      technologies: ["NextJS", "Tailwind", "Typescript", "External API", "MongoDB", "NodeJS"],
-      liveLink: "https://ellevo.vercel.app/",
-      sourceLink: "https://github.com/ehmasuk/ellevo",
-      image: "/ellevo.png",
-      purpose: "pet",
-    },
+
   ],
 } as const;
