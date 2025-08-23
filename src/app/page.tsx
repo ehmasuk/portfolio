@@ -27,9 +27,9 @@ export default function Page() {
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
             <div className="flex-col relative flex flex-1 space-y-1.5 mt-5">
-              <BlurFadeText delay={0} className="text-3xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none" yOffset={8} text="Hey, I'm Eh Masuk" />
-              <BlurFadeText className="max-w-[600px] text-2xl text-gray-700 dark:text-zinc-300" delay={0.5} text={DATA.description} />
-              <BlurFade delay={1} className="hidden absolute right-[-35px] top-[-25px] md:block">
+              <BlurFadeText delay={nextDelay()} className="text-3xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none" yOffset={8} text="Hey, I'm Eh Masuk" />
+              <BlurFadeText className="max-w-[600px] text-2xl text-gray-700 dark:text-zinc-300" delay={nextDelay()} text={DATA.description} />
+              <BlurFade delay={nextDelay()} className="hidden absolute right-[-35px] top-[-25px] md:block">
                 <svg width="250" height="68" viewBox="0 0 236 68" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <motion.path
                     strokeDasharray="50 1000"
@@ -53,7 +53,7 @@ export default function Page() {
               </BlurFade>
             </div>
 
-            <BlurFade delay={1.5}>
+            <BlurFade delay={nextDelay()}>
               <div className="relative">
                 <Avatar className="size-24">
                   <AvatarImage className="rounded border-gray-600" alt={DATA.name} src={DATA.avatarUrl} />
@@ -97,6 +97,24 @@ export default function Page() {
         </BlurFade>
       </section>
 
+      <section id="skills">
+        <div className="flex min-h-0 flex-col gap-y-3">
+          <BlurFade delay={nextDelay()}>
+            <h2 className="text-2xl font-bold">Skills</h2>
+          </BlurFade>
+          <div className="flex flex-wrap gap-3">
+            {DATA.skills.map((skill) => (
+              <BlurFade key={skill.name} delay={nextDelay()}>
+                <Badge>
+                  {skill.icon}
+                  {skill.name}
+                </Badge>
+              </BlurFade>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="work">
         <BlurFade delay={nextDelay()}>
           <h2 className="text-2xl font-bold">Work Experience</h2>
@@ -122,23 +140,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="skills">
-        <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={nextDelay()}>
-            <h2 className="text-2xl font-bold">Skills</h2>
-          </BlurFade>
-          <div className="flex flex-wrap gap-3">
-            {DATA.skills.map((skill) => (
-              <BlurFade key={skill.name} delay={nextDelay()}>
-                <Badge>
-                  {skill.icon}
-                  {skill.name}
-                </Badge>
-              </BlurFade>
-            ))}
-          </div>
-        </div>
-      </section>
+
       <section id="projects">
         <div className="space-y-3 w-full">
           <BlurFade delay={nextDelay()}>
