@@ -18,7 +18,7 @@ function ExperienceCard({ company, title, start, end, description, skills }: Pro
         <div className="absolute left-[-3px] top-6 w-4 h-4 bg-gradient-to-r from-zinc-800 to-zinc-600 rounded-full border-4 border-white dark:border-zinc-900 shadow-lg hidden md:block" />
         <div className="text-card-foreground flex flex-col gap-6 rounded-md ml-0 md:ml-8 group transition-all duration-300 border bg-white/80 dark:bg-zinc-800/70 backdrop-blur-sm">
           <SpotlightCard spotlightColor="34, 211, 238" spotlightOpacity={0.07}>
-            <div className="p-6 relative">
+            <div className="p-6 relative dark:bg-[#222225]">
               <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
