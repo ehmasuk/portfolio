@@ -12,12 +12,10 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Markdown from "react-markdown";
 
-const BLUR_FADE_DELAY = 0.1;
+const BLUR_FADE_DELAY = 0.01;
 
-let delayCounter = 0;
-const nextDelay = (step = 1) => {
-  delayCounter += step * BLUR_FADE_DELAY;
-  return delayCounter;
+const nextDelay = (step:number) => {
+  return step * BLUR_FADE_DELAY;
 };
 
 export default function Page() {
@@ -27,9 +25,9 @@ export default function Page() {
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
             <div className="flex-col relative flex flex-1 space-y-1.5 mt-5">
-              <BlurFadeText delay={nextDelay()} className="text-3xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none" yOffset={8} text="Hey, I'm Eh Masuk" />
-              <BlurFadeText className="max-w-[600px] text-2xl text-gray-700 dark:text-zinc-300" delay={nextDelay()} text={DATA.description} />
-              <BlurFade delay={nextDelay()} className="hidden absolute right-[-35px] top-[-25px] md:block">
+              <BlurFadeText delay={nextDelay(1)} className="text-3xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none" yOffset={8} text="Hey, I'm Eh Masuk" />
+              <BlurFadeText className="max-w-[600px] text-2xl text-gray-700 dark:text-zinc-300" delay={nextDelay(2)} text={DATA.description} />
+              <BlurFade delay={nextDelay(3)} className="hidden absolute right-[-35px] top-[-25px] md:block">
                 <svg width="250" height="68" viewBox="0 0 236 68" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <motion.path
                     strokeDasharray="50 1000"
@@ -53,7 +51,7 @@ export default function Page() {
               </BlurFade>
             </div>
 
-            <BlurFade delay={nextDelay()}>
+            <BlurFade delay={nextDelay(4)}>
               <div className="relative">
                 <Avatar className="size-24">
                   <AvatarImage className="rounded border-gray-600" alt={DATA.name} src={DATA.avatarUrl} />
@@ -89,22 +87,22 @@ export default function Page() {
         </div>
       </section>
       <section id="about" className="!mt-2">
-        <BlurFade delay={nextDelay()}>
+        <BlurFade delay={nextDelay(5)}>
           <h2 className="text-2xl font-bold">About</h2>
         </BlurFade>
-        <BlurFade delay={nextDelay()}>
+        <BlurFade delay={nextDelay(6)}>
           <Markdown className="text-gray-700 dark:text-zinc-300">{DATA.summary}</Markdown>
         </BlurFade>
       </section>
 
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={nextDelay()}>
+          <BlurFade delay={nextDelay(7)}>
             <h2 className="text-2xl font-bold">Skills</h2>
           </BlurFade>
           <div className="flex flex-wrap gap-3">
             {DATA.skills.map((skill) => (
-              <BlurFade key={skill.name} delay={nextDelay()}>
+              <BlurFade key={skill.name} delay={nextDelay(8)}>
                 <Badge>
                   {skill.icon}
                   {skill.name}
@@ -116,12 +114,12 @@ export default function Page() {
       </section>
 
       <section id="work">
-        <BlurFade delay={nextDelay()}>
+        <BlurFade delay={nextDelay(9)}>
           <h2 className="text-2xl font-bold">Work Experience</h2>
         </BlurFade>
         <div className="relative mt-5">
           <BlurFade
-            delay={nextDelay()}
+            delay={nextDelay(10)}
             className="absolute left-1 top-0 bottom-0 w-0.5 
                 bg-gradient-to-b from-zinc-200 via-zinc-200 to-transparent 
                 dark:from-zinc-700 dark:via-zinc-800 dark:to-transparent 
@@ -132,7 +130,7 @@ export default function Page() {
 
           {DATA.work.map((workerData, index) => {
             return (
-              <BlurFade key={index} delay={nextDelay()}>
+              <BlurFade key={index} delay={nextDelay(11)}>
                 <ExperienceCard company={workerData.company} title={workerData.title} start={workerData.start} end={workerData.end} description={workerData.description} skills={workerData.skills} />
               </BlurFade>
             );
@@ -143,7 +141,7 @@ export default function Page() {
 
       <section id="projects">
         <div className="space-y-3 w-full">
-          <BlurFade delay={nextDelay()}>
+          <BlurFade delay={nextDelay(12)}>
             <div className="flex justify-between items-center">
               <h2 className="text-2xl font-bold">My projects</h2>
 
@@ -152,7 +150,7 @@ export default function Page() {
               </Link>
             </div>
           </BlurFade>
-          <BlurFade delay={nextDelay()}>
+          <BlurFade delay={nextDelay(13)}>
             <Markdown className="text-gray-700 dark:text-zinc-300">
               I&apos;ve worked on projects for clients and companies, and also created pet projects to explore new ideas and learn new skills. Here are some of the projects I’ve built and contributed
               to:
@@ -161,7 +159,7 @@ export default function Page() {
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 mx-auto">
             {DATA.projects.map((project, id) => (
-              <BlurFade key={project.title} delay={nextDelay()}>
+              <BlurFade key={project.title} delay={nextDelay(14)}>
                 <ProjectCard
                   sourceLink={project.sourceLink}
                   liveLink={project.liveLink}
@@ -177,7 +175,7 @@ export default function Page() {
       </section>
       <section id="contact">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
-          <BlurFade delay={nextDelay()}>
+          <BlurFade delay={nextDelay(15)}>
             <div className="space-y-3">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Get in Touch</h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">

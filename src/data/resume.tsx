@@ -145,6 +145,24 @@ export const DATA = {
       purpose: "client",
     },
     {
+      title: "WeTravel",
+      description: "Travel booking website where I contributed as a frontend developer.",
+      technologies: ["HTML", "CSS", "Tailwind", "JavaScript", "jQuery"],
+      liveLink: "https://wetravel.pk",
+      sourceLink: "",
+      image: "/wetravel.png",
+      purpose: "client",
+    },
+    {
+      title: "Morristown Limos",
+      description: "Limousine booking website where I contributed as a frontend developer.",
+      technologies: ["HTML", "CSS", "Bootstrap", "JavaScript", "jQuery"],
+      liveLink: "https://morristownlimos.com",
+      sourceLink: "",
+      image: "/morris.png",
+      purpose: "client",
+    },
+    {
       title: "Ellevo",
       description: "Ecommerce fully functional landing page",
       technologies: ["NextJS", "Tailwind", "Typescript", "External API", "MongoDB", "NodeJS"],
@@ -162,15 +180,15 @@ export const DATA = {
       image: "/freeclip.png",
       purpose: "pet",
     },
+
     {
       title: "Course land",
-      description: "Learning purpose course selling platform",
+      description: "An experimental courses site built to sharpen my MERN skills.",
       technologies: ["NextJS", "CSS", "JS"],
       liveLink: "https://ehcourses.netlify.app/",
       sourceLink: "",
       image: "/courseland.png",
       purpose: "pet",
     },
-
   ],
 } as const;
