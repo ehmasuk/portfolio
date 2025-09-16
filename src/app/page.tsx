@@ -42,9 +42,9 @@ export default function Page() {
                   ></motion.path>
                   <defs>
                     <linearGradient id="paint0_linear" x1="100%" y1="0%" x2="0%" y2="0%" gradientUnits="objectBoundingBox">
-                      <stop offset="0%" stop-color="#9E00FF" stop-opacity="0" />
-                      <stop offset="50%" stop-color="#2EB9DF" />
-                      <stop offset="100%" stop-color="#2EB9DF" stop-opacity="0" />
+                      <stop offset="0%" stopColor="#9E00FF" stopOpacity="0" />
+                      <stop offset="50%" stopColor="#2EB9DF" />
+                      <stop offset="100%" stopColor="#2EB9DF" stopOpacity="0" />
                     </linearGradient>
                   </defs>
                 </svg>
@@ -158,7 +158,7 @@ export default function Page() {
           </BlurFade>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 mx-auto">
-            {DATA.projects.map((project, id) => (
+            {DATA.projects.slice(0,4).map((project, id) => (
               <BlurFade key={project.title} delay={nextDelay(14)}>
                 <ProjectCard
                   sourceLink={project.sourceLink}

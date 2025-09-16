@@ -154,6 +154,16 @@ export const DATA = {
       purpose: "client",
     },
     {
+      title: "MyBot",
+      description: "AI-powered chatbot platform with user authentication.",
+      technologies: ["NextJS", "NodeJS", "Tailwind", "Prisma", "NextAuth", "MongoDB"],
+      liveLink: "https://mybot-coral.vercel.app",
+      sourceLink: "https://github.com/ehmasuk/mybot",
+      image: "/mybot.png",
+      purpose: "pet",
+    },
+
+    {
       title: "Morristown Limos",
       description: "Limousine booking website where I contributed as a frontend developer.",
       technologies: ["HTML", "CSS", "Bootstrap", "JavaScript", "jQuery"],
