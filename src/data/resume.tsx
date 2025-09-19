@@ -9,7 +9,7 @@ export const DATA = {
   locationLink: "https://www.google.com/maps/place/dhaka",
   description: "A passionate fullstack web developer.",
   summary:
-    "Passionate Full-Stack Developer (MERN) building scalable web applications with seamless user experiences and efficient backend solutions. Always learning, problem-solving, and innovating to stay ahead in the evolving tech world",
+    "I began my journey in 2020, and from the very start, I was captivated by programming. What began as curiosity quickly grew into passion, and since then I’ve never stopped learning. Over the years, I’ve specialized in the MERN stack with a strong focus on front-end development, while continuously exploring new tools and technologies.",
   avatarUrl: "/me.jpg",
   skills: [
     {
