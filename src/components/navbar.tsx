@@ -39,9 +39,7 @@ export default function Navbar() {
                     <social.icon className="size-4" />
                   </Link>
                 </TooltipTrigger>
-                <TooltipContent>
-                  <p>{name}</p>
-                </TooltipContent>
+                <TooltipContent><p>{name}</p></TooltipContent>
               </Tooltip>
             </DockIcon>
           ))}
@@ -51,9 +49,7 @@ export default function Navbar() {
             <TooltipTrigger asChild>
               <AnimatedThemeToggler />
             </TooltipTrigger>
-            <TooltipContent>
-              <p>Theme</p>
-            </TooltipContent>
+            <TooltipContent><p>Theme</p></TooltipContent>
           </Tooltip>
         </DockIcon>
       </Dock>

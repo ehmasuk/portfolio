@@ -48,6 +48,14 @@ export const DATA = {
       name: "JWT",
       icon: <Icon fontSize={15} icon="simple-icons:jsonwebtokens" />,
     },
+    {
+      name: "Strapi",
+      icon: <Icon fontSize={15} icon="logos:strapi-icon" />,
+    },
+    {
+      name: "Docker",
+      icon: <Icon fontSize={15} icon="logos:docker-icon" />,
+    },
   ],
 
   navbar: [{ href: "/", icon: HomeIcon, label: "Home" }],

@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { MoonIcon } from "@radix-ui/react-icons";
+import { Icon } from "@iconify/react/dist/iconify.js";
 import { SunDim } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useRef, useState } from "react";
@@ -47,7 +47,7 @@ export const AnimatedThemeToggler = ({ className }: props) => {
   };
   return (
     <button ref={buttonRef} onClick={changeTheme} className={cn(className)}>
-      {isDarkMode ? <SunDim /> : <MoonIcon />}
+      {isDarkMode ? <SunDim /> : <Icon icon="material-symbols:dark-mode-rounded" width="20px" />}
     </button>
   );
 };
