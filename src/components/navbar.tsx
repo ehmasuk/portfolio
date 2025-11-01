@@ -39,20 +39,26 @@ export default function Navbar() {
                     <social.icon className="size-5" />
                   </Link>
                 </TooltipTrigger>
-                <TooltipContent><p>{name}</p></TooltipContent>
+                <TooltipContent>
+                  <p>{social.tooltip}</p>
+                </TooltipContent>
               </Tooltip>
             </DockIcon>
           ))}
         <Separator orientation="vertical" className="h-full py-2" />
-        <DockIcon>
+
+        <DockIcon key="theme">
           <Tooltip>
             <TooltipTrigger asChild>
-              <AnimatedThemeToggler />
+              <Link href="#" className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "size-5")}>
+                <AnimatedThemeToggler />
+              </Link>
             </TooltipTrigger>
-            <TooltipContent><p>Theme</p></TooltipContent>
+            <TooltipContent>
+              <p>Change Theme</p>
+            </TooltipContent>
           </Tooltip>
         </DockIcon>
-
       </Dock>
     </div>
   );

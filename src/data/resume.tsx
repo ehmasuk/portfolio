@@ -63,25 +63,29 @@ export const DATA = {
     tel: "+8801723266507",
     social: {
       GitHub: {
-        name: "My GitHub",
+        name: "GitHub",
+        tooltip: "My GitHub",
         url: "https://github.com/ehmasuk",
         icon: Icons.github,
         navbar: true,
       },
       LinkedIn: {
-        name: "My LinkedIn",
+        name: "LinkedIn",
+        tooltip: "My LinkedIn",
         url: "https://www.linkedin.com/in/ehmasuk",
         icon: Icons.linkedin,
         navbar: true,
       },
       email: {
-        name: "Email me",
+        name: "Email",
+        tooltip: "Email me",
         url: "mailto:ehmasuk@gmail.com?subject=Interested%20In%20Working%20With%20You",
         icon: Icons.email,
         navbar: true,
       },
       Whtasapp: {
-        name: "Whatsapp me",
+        name: "Whatsapp",
+        tooltip: "Whatsapp me",
         url: "https://wa.me/+8801723266507",
         icon: Icons.whatsapp,
         navbar: true,
