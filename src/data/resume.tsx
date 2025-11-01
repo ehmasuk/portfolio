@@ -1,6 +1,5 @@
 import { Icons } from "@/components/icons";
 import { Icon } from "@iconify/react";
-import { HomeIcon } from "lucide-react";
 export const DATA = {
   name: "Eh Masuk",
   initials: "EM",
@@ -58,33 +57,31 @@ export const DATA = {
     },
   ],
 
-  navbar: [{ href: "/", icon: HomeIcon, label: "Home" }],
+  navbar: [{ href: "/", icon: Icons.house, label: "Home" }],
   contact: {
     email: "ehmasuk@gmail.com",
     tel: "+8801723266507",
     social: {
       GitHub: {
-        name: "GitHub",
+        name: "My GitHub",
         url: "https://github.com/ehmasuk",
         icon: Icons.github,
-
         navbar: true,
       },
       LinkedIn: {
-        name: "LinkedIn",
+        name: "My LinkedIn",
         url: "https://www.linkedin.com/in/ehmasuk",
         icon: Icons.linkedin,
-
         navbar: true,
       },
       email: {
-        name: "Send Email",
-        url: "#",
+        name: "Email me",
+        url: "mailto:ehmasuk@gmail.com?subject=Interested%20In%20Working%20With%20You",
         icon: Icons.email,
-        navbar: false,
+        navbar: true,
       },
       Whtasapp: {
-        name: "Whatsapp",
+        name: "Whatsapp me",
         url: "https://wa.me/+8801723266507",
         icon: Icons.whatsapp,
         navbar: true,
