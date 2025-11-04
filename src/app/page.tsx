@@ -25,7 +25,7 @@ export default function Page() {
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
             <div className="flex-col relative flex flex-1 space-y-1.5 mt-5">
-              <BlurFadeText delay={nextDelay(1)} className="text-3xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none" yOffset={8} text="Hey, I'm Eh Masuk" />
+              <BlurFadeText delay={nextDelay(1)} className="text-3xl font-semibold tracking-tighter sm:text-4xl xl:text-5xl/none" yOffset={8} text="Hey, I'm Eh Masuk" />
               <BlurFadeText className="max-w-[600px] text-2xl text-gray-700 dark:text-zinc-300" delay={nextDelay(2)} text={DATA.description} />
               <BlurFade delay={nextDelay(3)} className="hidden absolute right-[-35px] top-[-25px] md:block">
                 <svg width="250" height="68" viewBox="0 0 236 68" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -91,7 +91,7 @@ export default function Page() {
           <h2 className="text-2xl font-bold">About</h2>
         </BlurFade>
         <BlurFade delay={nextDelay(6)}>
-          <Markdown className="text-gray-700 dark:text-zinc-300">{DATA.summary}</Markdown>
+          <Markdown className="text-gray-700 dark:text-zinc-300 mt-2">{DATA.summary}</Markdown>
         </BlurFade>
       </section>
 
@@ -178,7 +178,7 @@ export default function Page() {
           <BlurFade delay={nextDelay(15)}>
             <div className="space-y-3">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Get in Touch</h2>
-              <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="mx-auto max-w-[600px] text-gray-700 dark:text-zinc-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Want to chat? Just shoot me a dm{" "}
                 <Link href={DATA.contact.social.Whtasapp.url} className="text-blue-500 hover:underline">
                   with a direct question on whatsapp
