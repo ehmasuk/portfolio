@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { Moon, SunDim } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 
 type props = {
@@ -11,8 +11,13 @@ type props = {
 };
 
 export const AnimatedThemeToggler = ({ className }: props) => {
-  const { setTheme } = useTheme();
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  const { setTheme, theme } = useTheme();
+  const [isDarkMode, setIsDarkMode] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    setIsDarkMode(theme == "dark");
+  }, [theme]);
+
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const changeTheme = async () => {
     if (!buttonRef.current) return;
@@ -46,7 +51,8 @@ export const AnimatedThemeToggler = ({ className }: props) => {
   };
   return (
     <button ref={buttonRef} onClick={changeTheme} className={cn(className)}>
-      {isDarkMode ? <SunDim strokeWidth={1.5} /> : <Moon strokeWidth={1.5} width={20} />}
+      {isDarkMode && <SunDim strokeWidth={1.5} />}
+      {isDarkMode == false && <Moon strokeWidth={1.5} width={20} />}
     </button>
   );
 };
