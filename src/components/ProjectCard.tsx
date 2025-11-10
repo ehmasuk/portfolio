@@ -36,7 +36,7 @@ export function ProjectCard({ title, description, sourceLink, image, liveLink, t
   return (
     <CardContainer className="inter-var">
       <CardBody className="bg-white relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-[#222225] dark:border-white/[0.2] border-black/[0.1] w-auto h-auto rounded-md p-6 border">
-        <CardItem translateZ="50" className="text-md font-medium line-clamp-2 text-black dark:text-white">
+        <CardItem translateZ="50" className="text-md font-semibold line-clamp-2 text-black dark:text-white">
           {title}
         </CardItem>
         <CardItem as="p" translateZ="60" className="text-gray-700 dark:text-zinc-300 text-sm leading-relaxed mt-1">

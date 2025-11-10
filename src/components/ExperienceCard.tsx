@@ -22,11 +22,11 @@ function ExperienceCard({ company, title, start, end, description, skills }: Pro
               <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
-                    <h3 className="font-bold text-gray-900 dark:text-white group-hover:text-zinc-800 dark:group-hover:text-zinc-100 transition-colors">{company}</h3>
+                    <h3 className="font-semibold text-gray-900 dark:text-white group-hover:text-zinc-800 dark:group-hover:text-zinc-100 transition-colors">{company}</h3>
                   </div>
-                  <p className="font-medium text-zinc-700 dark:text-zinc-300 text-sm mb-3">{title}</p>
+                  <p className="font-medium text-zinc-500 dark:text-zinc-500 mb-3 text-sm">{title}</p>
                 </div>
-                <div className="text-sm text-gray-600 dark:text-zinc-400">
+                <div className="text-sm text-gray-500 dark:text-zinc-500">
                   {start} - {end}
                 </div>
               </div>

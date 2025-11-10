@@ -14,19 +14,28 @@ import Markdown from "react-markdown";
 
 const BLUR_FADE_DELAY = 0.01;
 
-const nextDelay = (step:number) => {
+const nextDelay = (step: number) => {
   return step * BLUR_FADE_DELAY;
 };
 
 export default function Page() {
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
+      {/* Hero section */}
+      {/* Hero section */}
+      {/* Hero section */}
+      {/* Hero section */}
+      {/* Hero section */}
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
             <div className="flex-col relative flex flex-1 space-y-1.5 mt-5">
-              <BlurFadeText delay={nextDelay(1)} className="text-3xl font-semibold tracking-tighter sm:text-4xl xl:text-5xl/none" yOffset={8} text="Hey, I'm Eh Masuk" />
-              <BlurFadeText className="max-w-[600px] text-2xl text-gray-700 dark:text-zinc-300" delay={nextDelay(2)} text={DATA.description} />
+              <h1>
+                <BlurFadeText delay={nextDelay(1)} className="text-3xl font-semibold tracking-tighter sm:text-4xl xl:text-5xl/none" yOffset={8} text="Hi, I'm Eh Masuk" />
+              </h1>
+              <h2>
+                <BlurFadeText className="max-w-[600px] text-2xl text-gray-700 dark:text-zinc-300" delay={nextDelay(2)} text={DATA.description} />
+              </h2>
               <BlurFade delay={nextDelay(3)} className="hidden absolute right-[-35px] top-[-25px] md:block">
                 <svg width="250" height="68" viewBox="0 0 236 68" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <motion.path
@@ -72,20 +81,23 @@ export default function Page() {
                 </div>
 
                 <div className="z-0">
-                  <div className="absolute left-0 md:right-[-100px] right-0 top-[-10px] h-px bg-slate-900/[0.1] dark:bg-zinc-300/[0.1] [mask-image:linear-gradient(to_right,transparent,white_4rem,white_calc(100%-4rem),transparent)]"></div>
-                  <div className="absolute right-[-10px] md:top-[-80px] top-0 -bottom-8 w-px bg-slate-900/[0.1] dark:bg-zinc-300/[0.1] [mask-image:linear-gradient(to_top,transparent,white_4rem,white_calc(100%-4rem),transparent)]"></div>
-                  <div className="absolute top-[-25px] right-10 -mb-px flex h-4 items-end overflow-hidden">
-                    <div className="flex -mb-px h-[2px] w-40 -scale-x-100">
-                      <div className="w-full flex-none blur-sm [background-image:linear-gradient(90deg,rgba(56,189,248,0)_0%,#0ea5e959_32.29%,rgba(236,72,153,0.3)_67.19%,rgba(236,72,153,0)_100%)]"></div>
-                      <div className="-ml-[100%] w-full flex-none blur-[1px] [background-image:linear-gradient(90deg,rgba(56,189,248,0)_0%,#0ea5e959_32.29%,rgba(236,72,153,0.3)_67.19%,rgba(236,72,153,0)_100%)]"></div>
-                    </div>
-                  </div>
+                  {/*Avatar top line */}
+                  <div className="absolute left-0 md:right-[-50px] right-0 top-[-10px] h-px bg-slate-900/[0.05] dark:bg-zinc-300/[0.05] [mask-image:linear-gradient(to_right,transparent,white_4rem,white_calc(100%-4rem),transparent)]"></div>
+
+                  {/*Avatar right line */}
+                  <div className="absolute right-[-10px] md:top-[-40px] top-0 -bottom-8 w-px bg-slate-900/[0.05] dark:bg-zinc-300/[0.03] [mask-image:linear-gradient(to_top,transparent,white_4rem,white_calc(100%-4rem),transparent)]"></div>
                 </div>
               </div>
             </BlurFade>
           </div>
         </div>
       </section>
+
+      {/* About section */}
+      {/* About section */}
+      {/* About section */}
+      {/* About section */}
+      {/* About section */}
       <section id="about" className="!mt-2">
         <BlurFade delay={nextDelay(5)}>
           <h2 className="text-2xl font-bold">About</h2>
@@ -95,6 +107,10 @@ export default function Page() {
         </BlurFade>
       </section>
 
+      {/* Skills section */}
+      {/* Skills section */}
+      {/* Skills section */}
+      {/* Skills section */}
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={nextDelay(7)}>
@@ -113,9 +129,14 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Work experience section */}
+      {/* Work experience section */}
+      {/* Work experience section */}
+      {/* Work experience section */}
+      {/* Work experience section */}
       <section id="work">
         <BlurFade delay={nextDelay(9)}>
-          <h2 className="text-2xl font-bold">Work Experience</h2>
+          <h2 className="text-2xl font-bold">Experience</h2>
         </BlurFade>
         <div className="relative mt-5">
           <BlurFade
@@ -138,27 +159,24 @@ export default function Page() {
         </div>
       </section>
 
-
+      {/* Projects section */}
+      {/* Projects section */}
+      {/* Projects section */}
+      {/* Projects section */}
       <section id="projects">
         <div className="space-y-3 w-full">
           <BlurFade delay={nextDelay(12)}>
             <div className="flex justify-between items-center">
-              <h2 className="text-2xl font-bold">My projects</h2>
+              <h2 className="text-2xl font-bold">Projects</h2>
 
               <Link href="/projects">
                 <PrimaryButton>See all</PrimaryButton>
               </Link>
             </div>
           </BlurFade>
-          <BlurFade delay={nextDelay(13)}>
-            <Markdown className="text-gray-700 dark:text-zinc-300">
-              I&apos;ve worked on projects for clients and companies, and also created pet projects to explore new ideas and learn new skills. Here are some of the projects I’ve built and contributed
-              to:
-            </Markdown>
-          </BlurFade>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 mx-auto">
-            {DATA.projects.slice(0,4).map((project, id) => (
+            {DATA.projects.slice(0, 4).map((project, id) => (
               <BlurFade key={project.title} delay={nextDelay(14)}>
                 <ProjectCard
                   sourceLink={project.sourceLink}
@@ -173,15 +191,21 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* Contact section */}
+      {/* Contact section */}
+      {/* Contact section */}
+      {/* Contact section */}
+      {/* Contact section */}
       <section id="contact">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
           <BlurFade delay={nextDelay(15)}>
             <div className="space-y-3">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Get in Touch</h2>
               <p className="mx-auto max-w-[600px] text-gray-700 dark:text-zinc-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Want to chat? Just shoot me a dm{" "}
+                Want to chat? Just shoot me a dm with a direct question on{" "}
                 <Link href={DATA.contact.social.Whtasapp.url} className="text-blue-500 hover:underline">
-                  with a direct question on whatsapp
+                  whatsapp
                 </Link>{" "}
                 and I&apos;ll respond whenever I can. I will ignore all soliciting.
               </p>
