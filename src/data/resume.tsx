@@ -6,7 +6,7 @@ export const DATA = {
   url: "https://ehmasuk.vercel.app",
   location: "Dhaka, Bangladesh",
   locationLink: "https://www.google.com/maps/place/dhaka",
-  description: "A passionate fullstack web developer.",
+  description: "Fullstack web developer | MERN stack",
   summary:
     "I began my journey in 2020, and from the very start, I was captivated by programming. What began as curiosity quickly grew into passion, and since then I’ve never stopped learning. Over the years, I’ve specialized in the MERN stack with a strong focus on front-end development, while continuously exploring new tools and technologies.",
   avatarUrl: "/me.jpg",
@@ -104,20 +104,18 @@ export const DATA = {
       end: "Jun 2025",
       description:
         "Built and maintained web pages using HTML, CSS, JavaScript, and jQuery. Developed a RAG-based AI chatbot using LangChain.js, Next.js, and Pinecone. Debugged complex CSS and JavaScript issues to ensure smooth UI/UX. Collaborated with developers using GitHub for version control, pull requests, and code reviews. Quickly learned and implemented new features from documentation.",
-    },
-    {
-      company: "Fiverr",
-      href: "https://fiverr.com",
-      skills: ["HTML", "CSS", "JavaScript", "Wordpress"],
-      location: "Remote",
-      title: "Front End Developer",
-      start: "Dec 2021",
-      end: "Sep 2022",
-      description:
-        "Completed 20+ projects converting Figma, PSD, and XD designs into responsive websites using HTML, CSS, and JavaScript. Customized WordPress themes and optimized website performance. Communicated with clients, managed projects independently, and consistently delivered work within deadlines.",
-    },
+    }
   ],
   projects: [
+    {
+      title: "PinPad",
+      description: "A free note sharing app with live collaboration.",
+      technologies: ["NextJS", "Socket.io", "Typescript", "MongoDB", "NodeJS"],
+      liveLink: "https://pinpad.vercel.app",
+      sourceLink: "https://github.com/ehmasuk/pin-pad",
+      image: "/pinpad.png",
+      purpose: "pet",
+    },
     {
       title: "Bookora",
       description: "A free online platform where users can create books.",
@@ -137,23 +135,6 @@ export const DATA = {
       purpose: "pet",
     },
     {
-      title: "Escuela De Escritura Creativa",
-      description: (
-        <>
-          Contributed as a frontend developer to{" "}
-          <a href="https://escuela-ray-bolivar-sosa.com" className="text-blue-600 underline" target="_blank">
-            this
-          </a>{" "}
-          company website
-        </>
-      ),
-      technologies: ["HTML", "CSS", "JS", "jQuery", "ReactJS", "NextJS", "Tailwind"],
-      liveLink: "https://escuela-ray-bolivar-sosa.com",
-      sourceLink: "",
-      image: "/ray.png",
-      purpose: "client",
-    },
-    {
       title: "WeTravel",
       description: "Travel booking website where I contributed as a frontend developer.",
       technologies: ["HTML", "CSS", "Tailwind", "JavaScript", "jQuery"],
@@ -171,25 +152,6 @@ export const DATA = {
       image: "/mybot.png",
       purpose: "pet",
     },
-
-    {
-      title: "Morristown Limos",
-      description: "Limousine booking website where I contributed as a frontend developer.",
-      technologies: ["HTML", "CSS", "Bootstrap", "JavaScript", "jQuery"],
-      liveLink: "https://morristownlimos.com",
-      sourceLink: "",
-      image: "/morris.png",
-      purpose: "client",
-    },
-    {
-      title: "Ellevo",
-      description: "Ecommerce fully functional landing page",
-      technologies: ["NextJS", "Tailwind", "Typescript", "External API", "MongoDB", "NodeJS"],
-      liveLink: "https://ellevo.vercel.app/",
-      sourceLink: "https://github.com/ehmasuk/ellevo",
-      image: "/ellevo.png",
-      purpose: "pet",
-    },
     {
       title: "FreeClip",
       description: "Developed an open-source desktop screen recorder",
@@ -197,16 +159,6 @@ export const DATA = {
       liveLink: "https://freeclip.vercel.app/",
       sourceLink: "https://github.com/ehmasuk/freeclip",
       image: "/freeclip.png",
-      purpose: "pet",
-    },
-
-    {
-      title: "Course land",
-      description: "An experimental courses site built to sharpen my MERN skills.",
-      technologies: ["NextJS", "CSS", "JS"],
-      liveLink: "https://ehcourses.netlify.app/",
-      sourceLink: "",
-      image: "/courseland.png",
       purpose: "pet",
     },
   ],
