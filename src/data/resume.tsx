@@ -8,7 +8,7 @@ export const DATA = {
   locationLink: "https://www.google.com/maps/place/dhaka",
   description: "Fullstack developer | MERN stack",
   summary:
-    "Frontend-focused MERN stack developer, continuously exploring new technologies and tools. Since beginning my journey , I’ve been captivated by programming, turning curiosity into passion and kept learning.",
+    "Frontend focused MERN stack developer, continuously exploring new technologies and tools. Since beginning my journey , I've been captivated by programming, turning curiosity into passion and kept learning.",
   avatarUrl: "/me.jpg",
   skills: [
     {
