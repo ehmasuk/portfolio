@@ -6,26 +6,14 @@ export const DATA = {
   url: "https://ehmasuk.vercel.app",
   location: "Dhaka, Bangladesh",
   locationLink: "https://www.google.com/maps/place/dhaka",
-  description: "Fullstack web developer | MERN stack",
+  description: "Fullstack developer | MERN stack",
   summary:
-    "I began my journey in 2020, and from the very start, I was captivated by programming. What began as curiosity quickly grew into passion, and since then I’ve never stopped learning. Over the years, I’ve specialized in the MERN stack with a strong focus on front-end development, while continuously exploring new tools and technologies.",
+    "Frontend-focused MERN stack developer, continuously exploring new technologies and tools. Since beginning my journey , I’ve been captivated by programming, turning curiosity into passion and kept learning.",
   avatarUrl: "/me.jpg",
   skills: [
     {
-      name: "Bootstrap",
-      icon: <Icon fontSize={15} icon="logos:bootstrap" />,
-    },
-    {
-      name: "Tailwind CSS",
-      icon: <Icon fontSize={15} icon="logos:tailwindcss-icon" />,
-    },
-    {
       name: "React JS",
       icon: <Icon fontSize={15} icon="logos:react" />,
-    },
-    {
-      name: "Redux",
-      icon: <Icon fontSize={15} icon="logos:redux" />,
     },
     {
       name: "Typescript",
@@ -40,6 +28,10 @@ export const DATA = {
       icon: <Icon fontSize={15} icon="logos:nodejs-icon" />,
     },
     {
+      name: "Redux",
+      icon: <Icon fontSize={15} icon="logos:redux" />,
+    },
+    {
       name: "Mongoose",
       icon: <Icon fontSize={15} icon="simple-icons:mongoose" />,
     },
@@ -50,6 +42,14 @@ export const DATA = {
     {
       name: "Strapi",
       icon: <Icon fontSize={15} icon="logos:strapi-icon" />,
+    },
+    {
+      name: "Tailwind CSS",
+      icon: <Icon fontSize={15} icon="logos:tailwindcss-icon" />,
+    },
+    {
+      name: "Bootstrap",
+      icon: <Icon fontSize={15} icon="logos:bootstrap" />,
     },
     {
       name: "Docker",
@@ -97,14 +97,14 @@ export const DATA = {
     {
       company: "Escuela De Escritura Creativa",
       href: "https://escuela-ray-bolivar-sosa.com",
-      skills: ["HTML", "CSS", "JS", "jQuery", "ReactJS", "NextJS", "Tailwind"],
+      skills: ["React", "NextJS", "Tailwind", "Typescript"],
       location: "Madrid, Spain",
       title: "Front End Developer",
-      start: "Nov 2022",
-      end: "Jun 2025",
+      start: "Nov 2023",
+      end: "June 2025",
       description:
-        "Built and maintained web pages using HTML, CSS, JavaScript, and jQuery. Developed a RAG-based AI chatbot using LangChain.js, Next.js, and Pinecone. Debugged complex CSS and JavaScript issues to ensure smooth UI/UX. Collaborated with developers using GitHub for version control, pull requests, and code reviews. Quickly learned and implemented new features from documentation.",
-    }
+        "Built and maintained web pages using Nextjs, Tailwind, Typescript. Developed a RAG-based AI chatbot using LangChain.js, Next.js, and Pinecone. Debugged complex CSS and JavaScript issues to ensure smooth UI/UX. Collaborated with developers using GitHub for version control, pull requests, and code reviews. Quickly learned and implemented new features from documentation.",
+    },
   ],
   projects: [
     {
