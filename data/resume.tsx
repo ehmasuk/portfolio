@@ -1,16 +1,17 @@
 import { ExperienceType, ProjectType } from "@/types";
-import { Github, Linkedin, Mail } from "lucide-react";
-import { ComponentType, SVGProps } from "react";
+import { GithubIcon, Linkedin02Icon, Mail01Icon, NewTwitterIcon } from "@hugeicons/core-free-icons";
+import { IconSvgElement } from "@hugeicons/react";
 
 type Props = {
   name: string;
   title: string;
   description: string;
   location: string;
+  resumeUrl: string;
   socials: {
     name: string;
     url: string;
-    icon: ComponentType<SVGProps<SVGSVGElement>>;
+    icon: IconSvgElement;
   }[];
   experience: ExperienceType[];
   projects: ProjectType[];
@@ -22,21 +23,28 @@ export const resume: Props = {
   description:
     "Frontend focused MERN stack developer, continuously exploring new technologies and tools. Since beginning my journey , I have been captivated by programming, turning curiosity into passion and kept learning.",
   location: "Dhaka, Bangladesh",
+  resumeUrl: "https://docs.google.com/document/d/16xqU_FbFhuOYR07erO3d94S_9RUVGPIz",
   socials: [
-    {
-      name: "Linkedin",
-      url: "https://linkedin.com/in/ehmasuk",
-      icon: Linkedin,
-    },
     {
       name: "Github",
       url: "https://github.com/ehmasuk",
-      icon: Github,
+      icon: GithubIcon,
+    },
+    {
+      name: "Linkedin",
+      url: "https://linkedin.com/in/ehmasuk",
+      icon: Linkedin02Icon,
+    },
+
+    {
+      name: "X (formally Twitter)",
+      url: "https://x.com/eh_masuk",
+      icon: NewTwitterIcon,
     },
     {
       name: "Mail",
-      url: "https://github.com/ehmasuk",
-      icon: Mail,
+      url: "mailto:ehmasuk@gmail.com",
+      icon: Mail01Icon,
     },
   ],
   experience: [
@@ -84,7 +92,7 @@ export const resume: Props = {
       stack: ["NextJS", "Tailwind", "Typescript", "MongoDB", "NodeJS"],
       sourceCode: "https://github.com/ehmasuk/bookora",
       liveDemo: "https://bookora.vercel.app",
-      category: "Live collaboration tool",
+      category: "Online book creation platform",
       favicon: "https://bookora.vercel.app/favicon.ico",
     },
     {

@@ -1,20 +1,19 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { HugeiconsIcon, IconSvgElement } from "@hugeicons/react";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
-import { ComponentType, HTMLAttributes, SVGProps } from "react";
+import { HTMLAttributes } from "react";
 
 type Props = {
   name: string;
   description?: string;
-  icon: ComponentType<SVGProps<SVGSVGElement>>;
+  icon: IconSvgElement;
   className?: string;
 } & HTMLAttributes<HTMLDivElement>;
 
 export const IconButton = ({ className, name, description, icon, ...props }: Props) => {
   const x = useMotionValue(0);
-
-  const Icon = icon;
 
   const rotate = useSpring(useTransform(x, [-100, 100], [-45, 45]), {
     stiffness: 100,
@@ -39,7 +38,7 @@ export const IconButton = ({ className, name, description, icon, ...props }: Pro
         className="border dark:border-2 hover:bg-gray-900/5 group duration-500 cursor-pointer rounded-lg border-slate-900/20 dark:border-white/20 size-8 grid place-items-center dark:hover:bg-white/10 dark:hover:text-white"
         onMouseMove={(e) => x.set(e.nativeEvent.offsetX - e.currentTarget.offsetWidth / 2)}
       >
-        <Icon className="size-4 text-slate-600 group-hover:text-slate-900 dark:text-white/90 dark:group-hover:text-white" />
+        <HugeiconsIcon icon={icon} strokeWidth={2} className="md:size-4.5 size-4 text-black/90 group-hover:text-black dark:text-white/90 dark:group-hover:text-white" />
       </div>
     </div>
   );

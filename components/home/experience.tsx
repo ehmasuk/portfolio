@@ -29,8 +29,8 @@ const SingleExperience = ({ experience, index, array }: { experience: Experience
         <div>
           <div className="flex items-center gap-1 mb-1.5">
             <h2 className="font-medium text-base leading-none">{experience.companyName}</h2>
-            <VerticalLineIcon className="size-3 dark:text-white/90! text-black/10!" />
-            <p className="text-zinc-500 text-xs font-mono leading-none">{experience.workingPeriod}</p>
+            <VerticalLineIcon className="size-3 dark:text-white/90! text-black/10! md:block hidden" />
+            <p className="text-zinc-500 text-xs font-mono leading-none md:block hidden">{experience.workingPeriod}</p>
           </div>
           <div className="flex items-center gap-2">
             <p className="font-light font-mono">{experience.position}</p>
@@ -45,7 +45,7 @@ const SingleExperience = ({ experience, index, array }: { experience: Experience
             </li>
           ))}
         </ul>
-        <div className="flex gap-2 mt-2 mb-2">
+        <div className="flex gap-2 mt-2 mb-2 flex-wrap">
           {experience.skills.map((skill, index) => (
             <Tag key={index}>{skill}</Tag>
           ))}

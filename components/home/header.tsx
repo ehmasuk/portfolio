@@ -2,13 +2,13 @@
 
 import { Avatar } from "@/components/ui/avatar";
 import { resume } from "@/data/resume";
-import { Calendar, File, MapPin } from "lucide-react";
+import { File01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Calendar, MapPin } from "lucide-react";
 import { motion } from "motion/react";
-import Link from "next/link";
 import { AvatarSvg } from "../global/avatar-svg";
 import { IconButton } from "../global/icon-button";
 import { ThemeToggler } from "../global/theme-toggler";
-import { Button } from "../ui/button";
 import { TextLoop } from "../ui/text-loop";
 export function Header() {
   return (
@@ -58,19 +58,20 @@ export function Header() {
               <TextLoop interval={5} className="text-sm sm:text-base font-mono text-muted-foreground">
                 <span>Full Stack Developer</span>
                 <span>MERN Stack developer</span>
-                <span>Welcome!🙂</span>
               </TextLoop>
             </div>
           </div>
 
           <div className="flex w-full gap-2 sm:gap-3 md:w-auto md:mb-2 -mt-8 sm:-mt-8 items-center">
-            <Link href="/" className="font-mono font-medium">
+            {/* <Link href="/" className="font-mono font-medium">
               Portfolio
             </Link>
-            <Link href="/components" className="font-mono font-medium text-muted-foreground">
+            <Link href="/" className="font-mono font-medium text-muted-foreground">
               Components
-            </Link>
-            <ThemeToggler />
+            </Link> */}
+            <div className="md:block hidden">
+              <ThemeToggler />
+            </div>
           </div>
         </div>
 
@@ -86,7 +87,7 @@ export function Header() {
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
-                  <span>Joined March 2024</span>
+                  <span>Born on Jan 26,1999</span>
                 </div>
               </div>
 
@@ -98,10 +99,15 @@ export function Header() {
                     </a>
                   ))}
                 </div>
-                <Button className="flex items-center gap-1">
-                  <File />
-                  Resume
-                </Button>
+
+                <a
+                  href={resume.resumeUrl}
+                  target="_blank"
+                  className="flex items-center gap-1 border dark:border-2 hover:bg-gray-900/5 group duration-500 cursor-pointer rounded-lg border-slate-900/20 dark:border-white/20 justify-center dark:hover:bg-white/10 dark:hover:text-white h-8 px-2 py-1 text-black/90 hover:text-black dark:text-white/90"
+                >
+                  <HugeiconsIcon icon={File01Icon} className="md:size-4.5 size-4" />
+                  Resume / CV
+                </a>
               </div>
             </div>
           </div>
