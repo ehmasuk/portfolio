@@ -14,8 +14,12 @@ export function Header() {
   return (
     <GridSection className="sm:p-0 p-0">
       {/* Cover Image*/}
-      <div className="relative h-20 md:h-28 w-[calc(100%-4px)] mx-auto -mt-[15px] border-b border-gray-100 dark:border-white/5">
-        <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,#25252526_0px_1px,transparent_1px_10px)] dark:bg-[repeating-linear-gradient(45deg,#ffffff0d_0px_1px,transparent_1px_10px)]"></div>
+
+      <div className="relative h-20 md:h-28 w-full mx-auto -mt-[15px] border-b border-gray-100 dark:border-white/5">
+        <div className="absolute inset-0 bg-[repeating-linear-gradient(330deg,#25252526_0px_1px,transparent_1px_10px)] dark:bg-[repeating-linear-gradient(330deg,#ffffff0d_0px_1px,transparent_1px_10px)]"></div>
+        <div className="absolute right-5 top-7">
+          <ThemeToggler />
+        </div>
       </div>
 
       <div className="sm:px-6 px-4 sm:pb-6 pb-4">
@@ -47,9 +51,6 @@ export function Header() {
             <Link href="/" className="font-mono font-medium text-muted-foreground">
               Components
             </Link> */}
-            <div className="md:block hidden">
-              <ThemeToggler />
-            </div>
           </div>
         </div>
 
