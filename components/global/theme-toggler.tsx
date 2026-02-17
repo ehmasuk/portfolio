@@ -19,7 +19,7 @@ export function ThemeToggler() {
 
   return (
     <>
-      <Button variant="ghost" size="icon-sm" className="bg-white dark:bg-black border border-gray-200 dark:border-white/5" onClick={() => setTheme(theme === "light" ? "dark" : "light")} name="theme">
+      <Button variant="ghost" size="icon-sm" onClick={() => setTheme(theme === "light" ? "dark" : "light")} name="theme">
         <Icon isDark={theme === "dark"} />
       </Button>
     </>
@@ -34,22 +34,22 @@ const moonPath = "M12 5V3m0 18v-2m4.95-11.95l1.414-1.414M5.636 18.364L7.05 16.95
 const Icon = ({ isDark }: { isDark: boolean }) => {
   return (
     <>
-      <svg xmlns="http://www.w3.org/2000/svg" className={cn(isDark ? "size-4" : "size-5")} viewBox="0 0 24 24">
+      <svg xmlns="http://www.w3.org/2000/svg" className={cn(isDark ? "size-5" : "size-4")} viewBox="0 0 24 24">
         <motion.g
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
           initial={false}
           animate={{
-            rotate: isDark ? 0 : 180,
+            rotate: isDark ? 0 : 360,
           }}
           transition={{
             duration: 0.5,
             ease: "easeInOut",
           }}
         >
-          {!isDark && <motion.circle cx={12} cy={12} r={3.5} />}
-          <motion.path strokeLinecap="round" d={isDark ? sunPath : moonPath} />
+          {isDark && <motion.circle cx={12} cy={12} r={3.5} />}
+          <motion.path strokeLinecap="round" d={isDark ? moonPath : sunPath} />
         </motion.g>
       </svg>
     </>
