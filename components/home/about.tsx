@@ -1,5 +1,4 @@
 import GridSection from "../global/grid-section";
-import { DotBackground } from "../ui/dot-background";
 
 function About() {
   return (

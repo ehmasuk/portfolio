@@ -129,13 +129,13 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-slate-900 dark:text-slate-100 text-sm font-geist overflow-hidden;
+    @apply bg-background text-slate-900 dark:text-slate-100 text-sm sm:text-base font-geist overflow-hidden;
   }
   .gridder-section {
     @apply relative;
   }
   .section-title {
-    @apply text-2xl font-semibold mb-3 text-black/80 dark:text-white/80 leading-none; 
+    @apply text-2xl font-semibold mb-3 text-black/80 dark:text-white/80 leading-none;
   }
   ul {
     @apply space-y-2;
@@ -143,14 +143,13 @@
   li {
     @apply relative pl-5 leading-relaxed after:content-[''] after:absolute after:left-0 after:top-2 after:size-2 after:bg-gray-300  dark:after:bg-white/30;
   }
-  p{
+  p {
     @apply leading-relaxed;
   }
 
   .brand-border {
     @apply border dark:border-2 border-slate-900/20 dark:border-white/20;
   }
-
 }
 
 @layer base {

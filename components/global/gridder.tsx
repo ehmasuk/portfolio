@@ -1,7 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { PlusIcon } from "lucide-react";
+import { Add01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 
 export function Gridder() {
   return (
@@ -14,7 +15,7 @@ export function Gridder() {
           "before:content-[''] before:absolute before:left-1/2 before:transform before:-translate-x-1/2 before:top-[22px] before:h-[3000px] before:w-[0.01em] before:bg-gray-200 dark:before:bg-white/5 before:-z-1",
         )}
       >
-        <PlusIcon className="stroke-gray-300 dark:stroke-slate-800 bg-white dark:bg-background" />
+        <HugeiconsIcon icon={Add01Icon} className="text-gray-300 sm:size-6 size-4 dark:text-slate-800 bg-white dark:bg-background" />
       </div>
       <div
         className={cn(
@@ -24,7 +25,7 @@ export function Gridder() {
           "before:content-[''] before:absolute before:left-1/2 before:transform before:-translate-x-1/2 before:top-[22px] before:h-[3000px] before:w-[0.01em] before:bg-gray-200 dark:before:bg-white/5 before:-z-1",
         )}
       >
-        <PlusIcon className="stroke-gray-300 dark:stroke-slate-800 bg-white dark:bg-background" />
+        <HugeiconsIcon icon={Add01Icon} className="text-gray-300 sm:size-6 size-4 dark:text-slate-800 bg-white dark:bg-background" />
       </div>
     </div>
   );

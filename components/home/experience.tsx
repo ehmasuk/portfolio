@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { ExperienceType } from "@/types";
-import { Invoice01Icon } from "@hugeicons/core-free-icons";
+import { Building03Icon, Invoice01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import GridSection from "../global/grid-section";
 import { VerticalLineIcon } from "../global/svg-icons";
@@ -30,7 +30,7 @@ const SingleExperience = ({ experience, index, array }: { experience: Experience
           <div className="flex items-center gap-1 mb-1.5">
             <h2 className="font-medium text-base leading-none">{experience.companyName}</h2>
             <VerticalLineIcon className="size-3 dark:text-white/90! text-black/10! md:block hidden" />
-            <p className="text-zinc-500 text-xs font-mono leading-none md:block hidden">{experience.workingPeriod}</p>
+            <p className="text-muted-foreground text-xs font-mono leading-none md:block hidden">{experience.workingPeriod}</p>
           </div>
           <div className="flex items-center gap-2">
             <p className="font-light font-mono">{experience.position}</p>
@@ -59,7 +59,7 @@ const SingleExperience = ({ experience, index, array }: { experience: Experience
             "after:content-[''] after:absolute after:left-1/2 after:top-full after:-translate-x-1/2 z-20 after:z-10 after:bg-slate-300 after:h-[400px] after:w-px dark:after:bg-white/30",
         )}
       >
-        <HugeiconsIcon icon={Invoice01Icon} className="size-4 text-slate-800 dark:text-white/90" />
+        <HugeiconsIcon icon={Building03Icon} className="size-4 text-slate-800 dark:text-white/90" />
       </div>
     </AccordionItem>
   );

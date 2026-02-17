@@ -8,12 +8,12 @@ import { resume } from "@/data/resume";
 
 export default function Page() {
   return (
-    <div className="max-w-3xl mx-auto px-4">
+    <div className="max-w-3xl mx-auto px-2">
       <Header />
       <About />
       <Experience experiences={resume.experience} />
-      <GotoTool />
       <Project projects={resume.projects} />
+      <GotoTool />
       <Footer />
     </div>
   );
