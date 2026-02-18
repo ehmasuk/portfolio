@@ -1,0 +1,192 @@
+---
+title: "How to Use i18n in Next.js Without Routing"
+author: "Ehmasuk"
+date: "2025-04-07"
+tags: ["Next.js", "next-intl", "React.js", "Internationalization", "i18n"]
+description: "A guide to adding multi-language support in Next.js using the without-routing approach — language is handled internally with no URL changes."
+image: "/blog/multi-language-in-nextjs.webp"
+readingTime: "5 min"
+isPublished: true
+---
+
+Internationalization (i18n) is essential for modern apps. If you're building a global product using **Next.js**, adding multiple languages to your website can be a game-changer and easier than you think!
+
+In this guide, we'll explore the **without routing approach** of i18n in Next.js:
+
+- **Without routing approach**: language is handled internally. No change in URL.
+
+**Let's dive in!**
+
+---
+
+## Project Setup
+
+Start with a new or existing Next.js app (with the App Router):
+
+```bash
+npx create-next-app@latest my-i18n-app
+cd my-i18n-app
+```
+
+### 1. Install the package
+
+```bash
+npm install next-intl
+```
+
+### 2. Create translation files
+
+Create a folder named `translations` with files for each language you want:
+
+```
+/translations
+    /en.json
+    /fr.json
+```
+
+Each file might look like this:
+
+```json
+// translations/en.json
+{
+  "hello": "Hello!",
+  "welcome": "Welcome to our site"
+}
+```
+
+```json
+// translations/fr.json
+{
+  "hello": "Bonjour!",
+  "welcome": "Bienvenue sur notre site"
+}
+```
+
+### 3. Add `next.config.mjs`
+
+```js
+// next.config.mjs
+
+/** @type {import('next').NextConfig} */
+
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin();
+
+const nextConfig = {};
+
+export default withNextIntl(nextConfig);
+```
+
+### 4. Create a server action to set cookie
+
+```ts
+"use server";
+
+import { cookies } from "next/headers";
+
+const setCookie = async (key: string, value: string) => {
+  const cookieStore = await cookies();
+  cookieStore.set(key, value);
+};
+
+export default setCookie;
+```
+
+### 5. Create the `i18n/request.ts` file
+
+```
+/i18n
+    /request.ts
+```
+
+Add the following code in `request.ts`:
+
+```ts
+// i18n/request.ts
+
+import { getRequestConfig } from "next-intl/server";
+import { cookies } from "next/headers";
+
+export default getRequestConfig(async () => {
+  // Check if there is any language set in cookie
+  const cookieStore = await cookies();
+  const language = cookieStore.get("LANGUAGE")?.value;
+
+  // If cookie is set, use it; otherwise default to "en"
+  const locale = language || "en";
+
+  return {
+    locale,
+    messages: (await import(`../translations/${locale}.json`)).default,
+  };
+});
+```
+
+### 6. Add `NextIntlClientProvider` in `app/layout.tsx`
+
+```tsx
+// app/layout.tsx
+
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
+
+export default async function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
+  return (
+    <html lang={locale}>
+      <body>
+        <NextIntlClientProvider messages={messages}>
+          {children}
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+### 7. Use translations in your page
+
+```tsx
+import { useTranslations } from "next-intl";
+
+function HomePage() {
+  const t = useTranslations("Homepage");
+  return <div>{t("title")}</div>;
+}
+
+export default HomePage;
+```
+
+### 8. Change the language by clicking buttons
+
+```tsx
+// components/navbar.tsx
+
+import setCookie from "@/actions/setCookie";
+
+function Navbar() {
+  const handleChangeLanguage = (val: string) => {
+    setCookie("LANGUAGE", val);
+  };
+
+  return (
+    <div>
+      <button onClick={() => handleChangeLanguage("en")}>EN</button>
+      <button onClick={() => handleChangeLanguage("fr")}>FR</button>
+    </div>
+  );
+}
+
+export default Navbar;
+```
+
+---
+
+That's it! With this setup, your Next.js app handles multiple languages entirely through cookies — no URL routing changes required.

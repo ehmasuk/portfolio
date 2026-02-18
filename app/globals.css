@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -148,7 +149,7 @@
   }
 
   .brand-border {
-    @apply border dark:border-2 border-slate-900/20 dark:border-white/20;
+    @apply border border-slate-900/20 dark:border-white/20;
   }
 }
 
@@ -180,3 +181,4 @@
 .hover\:paused:hover {
   animation-play-state: paused;
 }
+

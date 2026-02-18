@@ -1,0 +1,158 @@
+---
+title: "Software Development Process"
+date: "2025-12-03"
+tags: ["Software", "Node.js", "Backend", "Web"]
+description: "How to turn a rough client idea into a clean, working backend."
+image: "/blog/software-development-process.png"
+readingTime: "5 min"
+isPublished: true
+---
+
+## Received a rough idea from a client, like “Build a workout tracker”?  
+
+Don’t start coding immediately — the key to professional development is planning and structuring first.  
+
+This guide shows how to transform an unclear idea into a well-structured, fully functional backend.
+
+---
+
+## Step 1: Turn the Rough Idea into a Clear List
+
+The client's note is usually short and messy. Your first job? Ask questions and write it neatly.
+
+**Do this:**
+
+- Ask: Who uses the app? What exactly should it do? Any special rules?
+- Write simple bullet points (no fancy format needed).
+
+**Example:**
+
+- Users can sign up and log in
+- Users can add a workout with date, type, and minutes
+- Users can see their past workouts
+
+---
+
+## Step 2: Choose Your Tools (Like Picking Ingredients)
+
+Now decide how you'll build it.
+
+**Ask yourself:**
+
+- Backend language? → Maybe Node.js (fast) or Python (easy to read)
+- Database? → PostgreSQL (good for tables) or MongoDB (flexible)
+
+Write one line for each choice:
+
+> "I'll use Node.js + Express because it's great for APIs."
+> "PostgreSQL because data is structured."
+
+---
+
+## Step 3: Spot the Main Things in the App
+
+Look at your list from Step 1. Circle the nouns — those become your data pieces.
+
+**Example:**
+
+- User → name, email, password
+- Workout → date, type, minutes
+
+Write them down like a shopping list.
+
+---
+
+## Step 4: Draw How These Things Connect
+
+Grab a free tool like [draw.io](https://draw.io). Draw boxes and arrows.
+
+**Example sketch:**
+
+```
+[User] ——— owns many ——→ [Workout]
+```
+
+It's like a family tree for your data. This helps you build the database later without confusion.
+
+---
+
+## Step 5: Plan the API Endpoints
+
+These are the URLs the client will call.
+
+**Simple list:**
+
+- `GET /workouts` → show my workouts
+- `POST /workouts` → save a new one
+- `DELETE /workouts/5` → remove workout
+
+---
+
+## Step 6: Explain Each API Endpoint
+
+For every endpoint, write a tiny note:
+
+**Example:**
+
+`POST /workouts`
+
+- **Send:** `{ "date": "2025-11-03", "type": "run", "minutes": 30 }`
+- **Get back:** `{ "id": 12, "message": "Workout saved!" }`
+- **Needs login?** Yes
+
+Do this for all. It's like writing instructions for a friend.
+
+---
+
+## Step 7: Turn Your Notes into Auto-Docs (OpenAPI)
+
+Using [Swagger Editor](https://editor.swagger.io) and YAML, according to steps 1–6, create beautiful, clickable documentation for your API. Now anyone (frontend dev, tester, even the client) can understand your API in seconds.
+
+---
+
+## Step 8: Write the Real Code
+
+Time to build! This is the step where we start coding.
+
+1. Set up the project folder
+2. Create database tables (from Step 3 & 4)
+3. Code the endpoints (from Step 5 & 6)
+4. Test each one with Postman as you go
+
+Go slow. One endpoint at a time.
+
+---
+
+## Step 9: Add Auto-Tests (Your Safety Net)
+
+Write small tests that run with one click. You can use Jest (Node.js) or Pytest (Python) or whatever you want.
+
+**Examples:**
+
+- "Can I add a workout?" → Should return success
+- "What if I send wrong data?" → Should return error
+
+Run tests → all green? You're good to share!
+
+---
+
+## Final Words
+
+You don't need to be a genius. Just follow these 9 steps — every single time.
+Start with a tiny project (like a to-do API). You'll finish faster and with zero stress.
+
+---
+
+## Your Printable Checklist
+
+```
+[ ] 1. Elaborate the requirements and create a SRS (Clear requirement list)
+[ ] 2. Analyze the requirements (Tools chosen + why)
+[ ] 3. Find possible entities (Main things listed e.g. User, Workout…)
+[ ] 4. Design the ER Diagram (Data connection drawing)
+[ ] 5. Plan the API Endpoints
+[ ] 6. Explain Each API Endpoints
+[ ] 7. Design the API using Open API Spec (Turn Your Notes into Auto-Docs)
+[ ] 8. Implement The API (Write the Real Code)
+[ ] 9. Write Automatic Tests (Add Auto-Tests)
+```

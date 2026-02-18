@@ -1,5 +1,6 @@
 import { ProjectType } from "@/types";
-import { GithubIcon } from "lucide-react";
+import { Github } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import Link from "next/link";
 import GridSection from "../global/grid-section";
@@ -50,7 +51,7 @@ const SingleProject = ({ project }: { project: ProjectType }) => {
         <div className="flex gap-6 items-center">
           {project.sourceCode && (
             <Link href={project.sourceCode} target="_blank" className="flex items-center gap-1 no-underline">
-              <GithubIcon className="size-4" />
+              <HugeiconsIcon icon={Github} className="size-4" />
               Source code
             </Link>
           )}

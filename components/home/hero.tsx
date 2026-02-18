@@ -1,9 +1,8 @@
 "use client";
 
 import { resume } from "@/data/resume";
-import { File01Icon } from "@hugeicons/core-free-icons";
+import { Calendar04Icon, File01Icon, Location01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Calendar, MapPin } from "lucide-react";
 import { AvatarSvg } from "../global/avatar-svg";
 import { IconButton } from "../global/icon-button";
 import { TextLoop } from "../ui/text-loop";
@@ -44,11 +43,11 @@ export function Hero() {
             <p className="text-sm sm:text-base font-mono">{resume.description}</p>
             <div className="flex flex-wrap gap-3 sm:gap-4 text-xs sm:text-sm text-muted-foreground font-mono">
               <div className="flex items-center gap-1.5">
-                <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
+                <HugeiconsIcon icon={Location01Icon} className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 <span>{resume.location}</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
+                <HugeiconsIcon icon={Calendar04Icon} className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 <span>Born on Jan 26,1999</span>
               </div>
             </div>

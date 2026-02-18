@@ -15,7 +15,7 @@ export function ThemeToggler() {
 
   const { setTheme, theme } = useTheme();
 
-  if (!mounted) return null;
+  if (!mounted) return <Button variant="ghost" size="icon-sm"></Button>;
 
   return (
     <>

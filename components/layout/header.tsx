@@ -12,10 +12,10 @@ function Header() {
   return (
     <GridSection className="sm:p-0 p-0 -mt-4">
       <motion.div className="relative w-full mx-auto border-b border-gray-100 dark:border-white/5 flex gap-4 items-center justify-end py-10 px-6">
-        <Link href="/" className={cn("font-mono hover:text-primary", pathname !== "/" && "text-muted-foreground")}>
+        <Link href="/" className={cn("font-mono font-medium hover:text-primary", pathname !== "/" && "text-muted-foreground")}>
           Profile
         </Link>
-        <Link href="/" className={cn("font-mono hover:text-primary", pathname !== "/blogs" && "text-muted-foreground")}>
+        <Link href="/blog" className={cn("font-mono font-medium hover:text-primary", !pathname.startsWith("/blog") && "text-muted-foreground")}>
           Blogs
         </Link>
         {/* <Link href="/" className={cn("font-mono hover:text-primary", pathname !== "/components" && "text-muted-foreground")}>
