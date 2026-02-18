@@ -18,17 +18,13 @@ function Header({ image, title, description, date, readingTime, tags }: Props) {
       <GridSection>
         <div className="flex flex-col gap-4">
           <Link href="/blog" className="inline-block w-fit">
-            <Button variant="ghost" className="flex items-center font-semibold text-muted-foreground font-mono">
+            <Button variant="ghost" className="flex items-center font-medium text-muted-foreground font-mono">
               <HugeiconsIcon icon={ArrowLeft02Icon} />
               Back to Blogs
             </Button>
           </Link>
-          <motion.h1 layoutId={title} className="text-3xl md:text-4xl font-bold leading-tight">
-            {title}
-          </motion.h1>
-          <motion.p layoutId={description} className="md:text-lg">
-            {description}
-          </motion.p>
+          <h1 className="text-3xl md:text-4xl font-bold leading-tight">{title}</h1>
+          <p className="md:text-lg">{description}</p>
 
           <div className="flex flex-wrap items-center text-muted-foreground font-mono text-sm gap-4">
             <div className="flex items-center gap-1.5 font-mono">

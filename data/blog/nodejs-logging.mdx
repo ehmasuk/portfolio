@@ -1,0 +1,180 @@
+---
+title: "How to Set Up Logging in Node.js with Express and Pino"
+date: "19 February, 2026"
+tags: ["Nodejs", "Pinojs", "Logging", "Pino-http"]
+description: "Learn how to set up logging in a Node.js Express project using Pino and Pino-http."
+image: "/blog/nodejs-logging.webp"
+isPublished: true
+---
+
+## Introduction
+
+Logging is an important part of any backend application. It helps you track requests, errors, and debug issues easily. In this tutorial, we will see how we can set up logging in a Node.js Express project using **Pino** and **Pino-http** .
+
+We will handle two types of logs:
+
+- **Info logs** : For regular requests, like API calls.
+- **Error logs** : For all errors, including server and validation errors.
+
+Let’s start step by step.
+
+## Step 1: Install Required Packages
+
+I am assuming you already have a nodejs application. Lets add logging to your existing application
+
+Run:
+
+```bash
+npm install pino pino-http pino-roll
+```
+
+- pino → Fast logger for Node.js
+- pino-http → Middleware to log HTTP requests automatically
+- pino-roll → Rotate log files daily
+
+---
+
+## Step 2: Configure the Logger
+
+Create a new file `config/logger.ts` :
+
+```ts
+//config/logger.ts
+import type { Application } from "express";
+import path from "path";
+import pino from "pino";
+import { pinoHttp } from "pino-http";
+import crypto from "crypto";
+// Base directory for logs
+const base = path.resolve("./logs");
+// File paths for info and error logs
+const infoPath = path.join(base, "info/info.log");
+const errorPath = path.join(base, "error/error.log");
+// Configure logger with transports
+const transports = pino.transport({
+  targets: [
+    {
+      target: "pino-roll",
+      level: "info",
+      options: { file: infoPath, frequency: "daily", mkdir: true, limit: { count: 15 }, dateFormat: "dd-MM-yyyy" },
+    },
+    {
+      target: "pino-roll",
+      level: "error",
+      options: { file: errorPath, frequency: "daily", mkdir: true, limit: { count: 15 }, dateFormat: "dd-MM-yyyy" },
+    },
+  ],
+});
+// Main logger instance
+const logger = pino({ timestamp: pino.stdTimeFunctions.isoTime }, transports);
+
+// Middleware to log HTTP requests
+const configLogger = (app: Application) => {
+  app.use(
+    pinoHttp({
+      logger,
+      //This function generates a request id and set in header to use as requestId
+      genReqId: (req, res) => {
+        const existingID = req.id ?? req.headers["x-request-id"];
+        if (existingID) return existingID;
+        const id = crypto.randomUUID();
+        res.setHeader("X-Request-Id", id);
+        return id;
+      },
+    }),
+  );
+};
+export { logger, configLogger };
+```
+
+**What this does:**
+
+1. **Separates info and error logs**
+2. **Rotates logs daily**
+3. **Generates unique request IDs** for easier debugging
+
+---
+
+## Step 3: Add Global Error Handling
+
+Create `middlewares/errorHandler.ts` :
+
+```ts
+// middlewares/errorHandler.ts
+import type { ErrorRequestHandler, RequestHandler, Response } from "express";
+import { logger } from "../config/logger.js";
+
+const catchGlobalErrors: ErrorRequestHandler = (err, _req, res, _next): Response => {
+  // Log unexpected errors
+  logger.error({ err, requestId: res.getHeader("x-request-id") });
+  return res.status(500).json({ code: 500, message: "Internal server error", requestId: res.getHeader("x-request-id") });
+};
+export { catchGlobalErrors };
+```
+
+**Why this matters:**
+
+- Handles **404 routes** , database errors, validation errors, and unknown errors
+- Logs unexpected errors into error.log with request ID
+- Always sends requestId in the response for easier tracking
+
+---
+
+## Step 4: Integrate Logger and Error Handlers in Your App
+
+In your main server file (e.g., `app.ts` or `server.ts` ):
+
+```ts
+import express from "express";
+import { configLogger } from "./config/logger.js";
+import { catchGlobalErrors } from "./middlewares/errorHandler.js";
+
+const app = express();
+
+// Attach logger middleware
+configLogger(app);
+
+// Example route
+app.get("/", (req, res) => res.send("Hello World!"));
+
+// Catch all errors
+app.use(catchGlobalErrors);
+
+app.listen(3000, () => console.log("Server running on port 3000"));
+```
+
+---
+
+## Step 5: Testing
+
+We are all set, its time to test. Hit a valid route and check logs
+
+1. Check logs in:
+
+```bash
+logs/info/info.log
+logs/error/error.log
+```
+
+---
+
+## Benefits of This Setup
+
+- Organized **info** and **error logs**
+- Logs are **rotated daily** automatically
+- Each request has a **unique ID** for debugging
+- Easy to scale to bigger apps
+
+Nodejs Logging Error Handling Expressjs Logger
+
+````
+
+**Optional frontmatter** (add at the top if your MDX setup supports it):
+
+```mdx
+---
+title: "How to Set Up Logging in Node.js with Express and Pino"
+author: Ehmasuk
+tags: [nodejs, logging, error-handling, expressjs, logger]
+---
+````

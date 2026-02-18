@@ -1,0 +1,249 @@
+---
+title: "Authentication System in Next.js Using Auth js v5 with credentials"
+date: "3 December, 2025"
+tags: ["Software", "Node.js", "Backend", "Web"]
+description: "How to turn a rough client idea into a clean, working backend."
+image: "/blog/authentication.webp"
+isPublished: true
+---
+
+## How to Add Authentication System in Next.js Using Auth js v5 with **credentials**
+
+In this article, we will learn how to add login and logout authentication in a Next.js app using [Auth.js v5 (NextAuth)](https://authjs.dev/getting-started/authentication/credentials).
+We will also see how to call a register API, how sessions work, and how to protect routes.
+
+**Note:**  
+We already have backend APIs for Login and Register. So we are not building the backend, we are only consuming it from Next.js with typescript.
+
+We assume the backend has two endpoints:  
+Register User: Method- **POST** , Endpoint: **/api/register**  
+Login User: Method- **POST** , Endpoint: **/api/login**
+
+---
+
+**Step 1: Install dependencies**
+
+```bash
+npm install next-auth@beta
+```
+
+---
+
+**Step 2: Folder Structure**
+
+We need similar folder and file structures where we will work on:
+
+```
+/auth.ts # Auth.js configuration
+/app/api/auth/[…nextauth]/route.ts # Auth.js configuration
+/hooks/useAuth.ts # login + logout helper
+/middleware.ts # route protection
+```
+
+---
+
+**Step 3: Configure Auth.js (Credentials login)**
+
+```ts
+// auth.ts
+import axios from "axios";
+import NextAuth from "next-auth";
+import Credentials from "next-auth/providers/credentials";
+
+export const { handlers, signIn, signOut, auth } = NextAuth({
+  providers: [
+    Credentials({
+      name: "Credentials",
+      authorize: async (credentials) => {
+        try {
+          const res = await axios.post("http://localhost:8000/api/login", credentials);
+          const { user } = res.data;
+
+          if (user) return user;
+          return null;
+        } catch (err) {
+          return null;
+        }
+      },
+    }),
+  ],
+
+  callbacks: {
+    jwt: async ({ token, user }) => {
+      if (user) token.user = user; // store user in token
+      return token;
+    },
+    session: async ({ session, token }) => {
+      if (token?.user) session.user = token.user; // add user to session
+      return session;
+    },
+  },
+});
+```
+
+This file configures AuthJs using the **Credentials provider** so users can log in with email and password.
+
+What we are doing here:
+
+1. When a user tries to sign in, we send their credentials to our backend login API ( `http://localhost:8000/api/login` ) using **axios** .
+2. If the API returns a valid user, we store that user inside the JWT token and then exposes it in the session object, so we can access the logged-in user anywhere in the app.
+3. We also export useful helpers like `signIn` , `signOut` , and `auth` so we can trigger login/logout and check authentication anywhere
+
+---
+
+**Step 4: Auth.js API Route**
+
+In this step we just need to add this configuration code in: `/app/api/[..nextauth]/route.ts`
+
+```ts
+// /app/api/auth/[...nextauth]/route.ts
+import { handlers } from "@/auth";
+export const { GET, POST } = handlers;
+```
+
+---
+
+**Step 5: Login + Logout Hook**
+
+Now we will create a hook to perform login and logout action
+
+```ts
+// /hooks/useAuth.ts
+"use client";
+
+import { signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
+
+function useAuth() {
+  const router = useRouter();
+
+  const handleLogin = async (data) => {
+    const result = await signIn("credentials", { ...data, redirect: false });
+
+    if (!result?.error) {
+      router.push("/");
+    } else {
+      alert("Login failed");
+    }
+  };
+
+  const handleLogout = async () => {
+    await signOut({ redirect: false });
+    router.push("/login");
+  };
+
+  return { handleLogin, handleLogout };
+}
+
+export default useAuth;
+```
+
+You can import handleLogin and handleLogout to perform login and logout like this:
+
+```tsx
+// YOUR LOGIN COMPONENT
+"use client";
+const { handleLogin, handleLogout } = useAuth();
+export default function LoginPage() {
+  const { handleLogin, handleLogout } = useAuth();
+
+  // Example login data
+  const loginData = {
+    email: "john@mail.com",
+    password: "123456",
+  };
+
+  return (
+    <div>
+      {/* Login button */}
+      <button onClick={() => handleLogin(loginData)}>Login</button>
+
+      {/* Logout button */}
+      <button onClick={handleLogout}>Logout</button>
+    </div>
+  );
+}
+```
+
+---
+
+**Step 6: How to Call Register API**
+
+Since register have no relation with Auth.js you can do your own registration system but here, we just call it with Axios.
+
+```ts
+import axios from "axios";
+
+async function handleRegister(data) {
+  const res = await axios.post("http://localhost:8000/api/register", data);
+
+  if (res.data.success) {
+    alert("Registered successfully!");
+  } else {
+    alert("Registration failed");
+  }
+}
+```
+
+Usage example: `<form action={handleRegister}>`
+
+---
+
+**Step 7: Getting session informations (user is loged in or not)**
+
+If you want session state in a **Client component** :
+
+```tsx
+"user client";
+import { useSession } from "next-auth/react";
+
+const { data: session, status } = useSession();
+
+console.log(session?.user);
+console.log(status); // "authenticated" | "unauthenticated" | "loading"
+```
+
+or If you want session state in a **Server component** :
+
+```ts
+import { auth } from "@/auth";
+
+const session = await auth();
+console.log(session?.user);
+```
+
+---
+
+**Step 8: How to Protect Routes**
+
+Now time to protect your routes so that logout user cannot access your private routes
+
+```ts
+// middleware.ts
+import { auth } from "@/auth";
+import { NextResponse } from "next/server";
+
+export async function middleware() {
+  const session = await auth();
+  if (!session) return NextResponse.redirect(new URL("/login", request.url));
+}
+
+export const config = {
+  matcher: ["/dashboard", "/profile"],
+};
+```
+
+Any user trying to go on dashboard without login, this will auto-redirect the user to the login page.
+
+---
+
+🎉 Congratulations!  
+You just implemented your first login system using Auth.js. Isn’t it easy?
+
+If you have any questions or run into any issues, don’t forget to comment below. Happy coding!
+
+Nextjs Authjs Nextauth Authentication Login
+
+```
+
+```

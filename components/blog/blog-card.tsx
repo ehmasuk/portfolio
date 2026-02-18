@@ -30,12 +30,12 @@ export function BlogCard({ title = "", image = "", description = "", date = "", 
           {/* Content Section */}
           <div className="flex flex-col gap-4 p-4">
             <div className="space-y-2">
-              <motion.h3 layoutId={title} title={title} className="font-semibold text-base transition-colors group-hover:text-primary line-clamp-1">
+              <h3 title={title} className="font-semibold text-lg transition-colors group-hover:text-primary line-clamp-2 min-h-14">
                 {title}
-              </motion.h3>
-              <motion.p layoutId={description} title={description} className="text-sm text-muted-foreground line-clamp-2 font-mono ">
+              </h3>
+              <p title={description} className="text-sm text-muted-foreground line-clamp-2 font-mono ">
                 {description}
-              </motion.p>
+              </p>
 
               <div className="flex flex-wrap gap-2">
                 {tags?.slice(0, 2).map((tag, index) => (
@@ -45,13 +45,13 @@ export function BlogCard({ title = "", image = "", description = "", date = "", 
               </div>
             </div>
 
-            <div className="flex items-center font-mono justify-between border-t border-gray-200 dark:border-white/5 pt-4 text-muted-foreground">
+            <div className="flex items-center text-sm font-mono justify-between border-t border-gray-200 dark:border-white/5 pt-4 text-muted-foreground">
               <div className="flex items-center gap-1">
                 <HugeiconsIcon icon={Calendar04Icon} className="size-4" />
                 <span>{date}</span>
               </div>
 
-              <div className="flex items-center gap-1 text-muted-foreground">
+              <div className="flex items-center gap-1">
                 <HugeiconsIcon icon={Clock01FreeIcons} className="size-4" />
                 <span>{readingTime}</span>
               </div>

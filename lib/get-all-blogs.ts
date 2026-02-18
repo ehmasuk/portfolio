@@ -2,6 +2,7 @@ import { BlogCardType } from "@/types";
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
+import { calculateReadingTime } from "./calculate-reading-time";
 
 const blogsDirectory = path.join(process.cwd(), "data/blog");
 
@@ -21,7 +22,7 @@ export function getAllBlogs(): BlogCardType[] {
       title: data.title,
       date: data.date,
       description: data.description,
-      readingTime: data.readingTime,
+      readingTime: calculateReadingTime(fileContent),
       tags: data.tags,
       image: data.image,
       isPublished: data.isPublished,

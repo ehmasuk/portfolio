@@ -2,6 +2,7 @@ import { BlogType } from "@/types";
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
+import { calculateReadingTime } from "./calculate-reading-time";
 
 const blogDirectory = path.join(process.cwd(), "data/blog");
 
@@ -17,7 +18,7 @@ export function getSingleBlog(slug: string): BlogType {
     date: data.date,
     description: data.description,
     content: content,
-    readingTime: data.readingTime,
+    readingTime: calculateReadingTime(content),
     tags: data.tags,
     image: data.image,
     isPublished: data.isPublished,

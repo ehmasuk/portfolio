@@ -8,12 +8,13 @@ import { IconButton } from "../global/icon-button";
 import { TextLoop } from "../ui/text-loop";
 
 import { motion } from "motion/react";
+import GridSection from "../global/grid-section";
 
 export function Hero() {
   return (
-    <div className="sm:px-6 px-4 sm:pb-6 pb-4 -mt-8">
+    <GridSection className="border-x-[0.01rem] border-gray-200 dark:border-white/5">
       {/* Profile */}
-      <div className="relative mb-6 sm:mb-4">
+      <div className="relative mb-6 sm:mb-4 -mt-12">
         <div className="flex items-end gap-4 sm:gap-6">
           <motion.div layoutId="header-avatar" className="size-24 z-60 bg-white sm:size-32 grid place-items-center overflow-hidden rounded-full border border-gray-200">
             <AvatarSvg className="md:size-28" />
@@ -70,6 +71,6 @@ export function Hero() {
           </div>
         </div>
       </section>
-    </div>
+    </GridSection>
   );
 }

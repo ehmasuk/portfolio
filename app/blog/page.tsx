@@ -10,7 +10,7 @@ const allBlogs: BlogCardType[] = getAllBlogs();
 
 function page() {
   return (
-    <GridSection>
+    <GridSection className="border-x-[0.01rem] border-gray-200 dark:border-white/5">
       <p className="section-title mb-2">Blogs</p>
       <p className="text-muted-foreground mb-6">A collection of articles on development, design, and ideas</p>
       <InputGroup className="rounded-md h-10 border-gray-300 dark:border-white/5">

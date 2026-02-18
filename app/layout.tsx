@@ -3,6 +3,7 @@ import Header from "@/components/layout/header";
 import { ThemeProvider } from "@/providers/theme-provider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <main className="max-w-3xl mx-auto px-4">
+            <NextTopLoader color="#000" showSpinner={false} easing="ease" speed={300} />
             <Header />
             {children}
             <Footer />

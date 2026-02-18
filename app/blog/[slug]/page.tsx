@@ -21,7 +21,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const mdxStyle = "prose prose-sm md:prose-base dark:prose-invert prose-ul:space-y-2 prose-ul:pl-0 prose-li:list-none prose-li:pl-5";
 
   return (
-    <article className="pb-20">
+    <article>
 
       {/* mdx header */}
       <Header image={blog.image} title={blog.title} description={blog.description} date={blog.date} readingTime={blog.readingTime} tags={blog.tags} />
