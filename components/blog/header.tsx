@@ -23,7 +23,7 @@ function Header({ image, title, description, date, readingTime, tags }: Props) {
               Back to Blogs
             </Button>
           </Link>
-          <h1 className="text-3xl md:text-4xl font-bold leading-tight">{title}</h1>
+          <h1 className="text-3xl md:text-4xl text-black dark:text-white font-bold leading-tight">{title}</h1>
           <p className="md:text-lg">{description}</p>
 
           <div className="flex flex-wrap items-center text-muted-foreground font-mono text-sm gap-4">

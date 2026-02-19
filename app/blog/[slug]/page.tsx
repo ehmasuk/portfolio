@@ -6,6 +6,9 @@ import { BlogType } from "@/types";
 import rehypeHighlight from "@shikijs/rehype";
 import { MDXRemote } from "next-mdx-remote/rsc";
 
+
+
+
 export async function generateStaticParams() {
   const blogs = getAllBlogs();
   return blogs.map((blog) => ({
@@ -18,7 +21,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   const blog: BlogType = getSingleBlog(slug);
 
-  const mdxStyle = "prose prose-sm md:prose-base dark:prose-invert prose-ul:space-y-2 prose-ul:pl-0 prose-li:list-none prose-li:pl-5";
+  const mdxStyle = "prose dark:prose-invert prose-ul:space-y-2 prose-ul:pl-0 prose-li:list-none prose-li:pl-5";
 
   return (
     <article>

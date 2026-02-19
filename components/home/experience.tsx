@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { ExperienceType } from "@/types";
-import { Building03Icon, Invoice01Icon } from "@hugeicons/core-free-icons";
+import { Building03Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import GridSection from "../global/grid-section";
 import { VerticalLineIcon } from "../global/svg-icons";
@@ -28,12 +28,12 @@ const SingleExperience = ({ experience, index, array }: { experience: Experience
       <AccordionTrigger className="hover:no-underline pt-0">
         <div>
           <div className="flex items-center gap-1 mb-1.5">
-            <h2 className="font-medium text-base leading-none">{experience.companyName}</h2>
+            <h2 className="font-medium text-base leading-none text-black dark:text-white">{experience.companyName}</h2>
             <VerticalLineIcon className="size-3 dark:text-white/90! text-black/10! md:block hidden" />
             <p className="text-muted-foreground text-xs font-mono leading-none md:block hidden">{experience.workingPeriod}</p>
           </div>
           <div className="flex items-center gap-2">
-            <p className="font-light font-mono">{experience.position}</p>
+            <p className="font-mono">{experience.position}</p>
           </div>
         </div>
       </AccordionTrigger>

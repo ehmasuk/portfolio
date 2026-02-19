@@ -33,9 +33,9 @@ const SingleProject = ({ project }: { project: ProjectType }) => {
           </div>
           <div className="flex-1">
             <div className="flex items-center gap-1 mb-1.5">
-              <h2 className="font-medium text-base leading-none">{project.title}</h2>
+              <h2 className="font-medium text-base leading-none text-black dark:text-white">{project.title}</h2>
             </div>
-            <p className="font-light font-mono">{project.category}</p>
+            <p className="font-mono">{project.category}</p>
           </div>
         </div>
       </AccordionTrigger>

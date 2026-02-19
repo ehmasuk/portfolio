@@ -54,7 +54,7 @@
 
 :root {
   --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --foreground: #364153;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -130,13 +130,13 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-slate-900 dark:text-slate-100 text-sm sm:text-base font-geist overflow-hidden;
+    @apply bg-background text-sm sm:text-base font-geist overflow-hidden;
   }
   .gridder-section {
-    @apply relative;
+    @apply relative text-foreground;
   }
   .section-title {
-    @apply text-2xl font-semibold mb-3 text-black/80 dark:text-white/80 leading-none;
+    @apply text-2xl font-medium mb-3 leading-none text-black! dark:text-white!;
   }
   ul {
     @apply space-y-2;

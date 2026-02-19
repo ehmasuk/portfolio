@@ -6,6 +6,7 @@ import { BlogCardType } from "@/types";
 import { BookOpen01Icon, Calendar04Icon, Clock01FreeIcons } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { motion } from "motion/react";
+import Image from "next/image";
 import Link from "next/link";
 import Tag from "../global/tag";
 
@@ -15,17 +16,17 @@ export function BlogCard({ title = "", image = "", description = "", date = "", 
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className={cn("w-full max-w-[400px]", className)}>
         <Card className="group relative h-full overflow-hidden rounded-md bg-background backdrop-blur-md transition-all duration-300 hover:border-primary/50 p-0 gap-0">
           {/* Image Section */}
-          <div className="relative aspect-video overflow-hidden">
-            <motion.img layoutId={image} src={image} alt={title} title={title} className="h-full border-b w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+          <motion.div layoutId={image} className="relative aspect-video overflow-hidden">
+            <Image fill src={image} alt={title} title={title} className="h-full border-b w-full object-cover transition-transform duration-500 group-hover:scale-110" />
 
             {/* Hover Overlay Action */}
             <div className="absolute inset-0 flex items-center justify-center bg-background/20 backdrop-blur-[2px] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <motion.button className="flex items-center gap-2 rounded-md bg-primary px-6 py-2 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/25 cursor-pointer">
+              <button className="flex items-center gap-2 rounded-md bg-primary px-6 py-2 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/25 cursor-pointer">
                 <HugeiconsIcon icon={BookOpen01Icon} />
                 Read
-              </motion.button>
+              </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Content Section */}
           <div className="flex flex-col gap-4 p-4">

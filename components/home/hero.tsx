@@ -16,14 +16,14 @@ export function Hero() {
       {/* Profile */}
       <div className="relative mb-6 sm:mb-4 -mt-12">
         <div className="flex items-end gap-4 sm:gap-6">
-          <motion.div layoutId="header-avatar" className="size-24 z-60 bg-white sm:size-32 grid place-items-center overflow-hidden rounded-full border border-gray-200">
-            <AvatarSvg className="md:size-28" />
+          <motion.div layoutId="header-avatar" className="size-24 z-60 bg-white sm:size-30 grid place-items-center overflow-hidden rounded-md border border-black/5">
+            <AvatarSvg className="size-22 sm:size-28 border border-black/5 rounded-md bg-gray-50" />
           </motion.div>
 
           {/* Name & Text Loop */}
           <div className="mb-1 sm:mb-2 space-y-0.5 sm:space-y-1 flex-1">
             <div className="flex items-center gap-2 justify-between">
-              <h1 className="text-xl sm:text-2xl font-bold tracking-tight md:text-3xl">{resume.name}</h1>
+              <h1 className="text-xl sm:text-2xl font-medium tracking-tight md:text-3xl text-black dark:text-white">{resume.name}</h1>
               {/* font size */}
             </div>
 
