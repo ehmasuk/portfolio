@@ -5,7 +5,7 @@ import React from "react";
 
 function GridSection({ className, children }: { className?: string; children: React.ReactNode }) {
   return (
-    <div className={cn("sm:p-6 p-4 gridder-section border-x-[0.01rem] border-gray-200 dark:border-white/5", className)}>
+    <div className={cn("sm:p-6 p-4 gridder-section border-x-[0.01rem] border-gray-200 dark:border-white/5 bg-background", className)}>
       {children}
 
       {/* grid lines */}

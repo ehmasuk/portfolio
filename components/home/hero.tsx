@@ -9,6 +9,7 @@ import { TextLoop } from "../ui/text-loop";
 
 import { motion } from "motion/react";
 import GridSection from "../global/grid-section";
+import Navigation from "../layout/navigation";
 
 export function Hero() {
   return (
@@ -23,8 +24,8 @@ export function Hero() {
           {/* Name & Text Loop */}
           <div className="mb-1 sm:mb-2 space-y-0.5 sm:space-y-1 flex-1">
             <div className="flex items-center gap-2 justify-between">
-              <h1 className="text-xl sm:text-2xl font-medium tracking-tight md:text-3xl text-black dark:text-white">{resume.name}</h1>
-              {/* font size */}
+              <h1 className="text-2xl font-medium tracking-tight md:text-3xl text-black dark:text-white">{resume.name}</h1>
+              {/* <Navigation className="hidden sm:flex" /> */}
             </div>
 
             <TextLoop interval={5} className="text-sm sm:text-base font-mono text-muted-foreground">
