@@ -1,12 +1,11 @@
-import { BlogType } from "@/types";
+import { ComponentType } from "@/types";
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
-import { calculateReadingTime } from "./calculate-reading-time";
 
 const blogDirectory = path.join(process.cwd(), "data/mdx-docs");
 
-export function getSingleBlog(slug: string): BlogType | null {
+export function getSingleComponent(slug: string): ComponentType | null {
   const fullPath = path.join(blogDirectory, `${slug}.mdx`);
   if (!fs.existsSync(fullPath)) {
     return null;
@@ -15,19 +14,18 @@ export function getSingleBlog(slug: string): BlogType | null {
 
   const { data, content } = matter(fileContent);
 
-  const result: BlogType = {
+  const result: ComponentType = {
     title: data.title,
     slug: data.slug,
     date: data.date,
     description: data.description,
-    content: content,
-    readingTime: calculateReadingTime(content),
     tags: data.tags,
     image: data.image,
     category: data.category,
+    content,
   };
 
-  if (result.category !== "blog") {
+  if (result.category !== "component") {
     return null;
   }
 

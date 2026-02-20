@@ -6,6 +6,7 @@ tags: ["Next.js", "next-intl", "React.js", "Internationalization", "i18n"]
 description: "A guide to adding multi-language support in Next.js using the without-routing approach — language is handled internally with no URL changes."
 image: "/blog/multi-language-in-nextjs.webp"
 isPublished: true
+category: blog
 ---
 
 Internationalization (i18n) is essential for modern apps. If you're building a global product using **Next.js**, adding multiple languages to your website can be a game-changer and easier than you think!
@@ -141,9 +142,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
       </body>
     </html>
   );

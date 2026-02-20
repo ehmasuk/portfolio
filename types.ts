@@ -18,7 +18,7 @@ export type ProjectType = {
   favicon: string;
 };
 
-export type BlogType = {
+export type MdxDocType = {
   title: string;
   slug: string;
   date: string;
@@ -27,7 +27,13 @@ export type BlogType = {
   readingTime: string;
   tags: string[];
   image: string;
-  isPublished: boolean;
+  category: "blog" | "component";
 };
 
+export type BlogType = MdxDocType;
+
 export type BlogCardType = Omit<BlogType, "content">;
+
+export type ComponentType = Omit<MdxDocType, "readingTime">;
+
+export type ComponentCardType = Pick<ComponentType, "title" | "description" | "image" | "slug" | "date" | "category">;

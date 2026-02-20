@@ -28,7 +28,7 @@ function page() {
             tags={blog.tags}
             image={blog.image}
             slug={blog.slug}
-            isPublished={blog.isPublished}
+            category={blog.category}
           />
         ))}
       </div>

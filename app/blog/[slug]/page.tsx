@@ -5,29 +5,32 @@ import { getSingleBlog } from "@/lib/get-single-blog";
 import { BlogType } from "@/types";
 import rehypeHighlight from "@shikijs/rehype";
 import { MDXRemote } from "next-mdx-remote/rsc";
-
-
-
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   const blogs = getAllBlogs();
-  return blogs.map((blog) => ({
-    slug: blog.slug,
-  }));
+  return blogs
+    .filter((blog) => blog.category === "blog")
+    .map((blog) => ({
+      slug: blog.slug,
+    }));
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
-  const blog: BlogType = getSingleBlog(slug);
+  const blog: BlogType | null = getSingleBlog(slug);
+
+  if (!blog) {
+    return notFound();
+  }
 
   const mdxStyle = "prose dark:prose-invert prose-ul:space-y-2 prose-ul:pl-0 prose-li:list-none prose-li:pl-5";
 
   return (
     <article>
-
       {/* mdx header */}
-      <Header image={blog.image} title={blog.title} description={blog.description} date={blog.date} readingTime={blog.readingTime} tags={blog.tags} />
+      <Header image={blog.image} title={blog.title} description={blog.description} date={blog.date} readingTime={blog.readingTime} tags={blog.tags} category={blog.category} />
 
       {/* mdx content */}
       <GridSection>

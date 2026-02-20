@@ -14,7 +14,7 @@ function Navigation({ className }: { className?: string }) {
       <Link href="/blog" className={cn("font-mono text-black dark:text-white hover:text-primary", !pathname.startsWith("/blog") && "text-muted-foreground")}>
         Blogs
       </Link>
-      <Link href="/" className={cn("font-mono text-black dark:text-white hover:text-primary", !pathname.startsWith("/components") && "text-muted-foreground")}>
+      <Link href="/component" className={cn("font-mono text-black dark:text-white hover:text-primary", !pathname.startsWith("/component") && "text-muted-foreground")}>
         Components
       </Link>
       <ThemeToggler />

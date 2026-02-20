@@ -10,17 +10,17 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 
-type Props = Pick<BlogType, "image" | "title" | "description" | "date" | "readingTime" | "tags">;
+type Props = Pick<BlogType, "image" | "title" | "description" | "date" | "readingTime" | "tags" | "category">;
 
-function Header({ image, title, description, date, readingTime, tags }: Props) {
+function Header({ image, title, description, date, readingTime, tags, category }: Props) {
   return (
     <header>
       <GridSection>
         <div className="flex flex-col gap-4">
-          <Link href="/blog" className="inline-block w-fit">
+          <Link href={`/${category}`} className="inline-block w-fit">
             <Button variant="ghost" className="flex items-center font-medium text-muted-foreground font-mono">
               <HugeiconsIcon icon={ArrowLeft02Icon} />
-              Back to Blogs
+              {category === "blog" ? "Back to Blogs" : "Back to Components"}
             </Button>
           </Link>
           <h1 className="text-3xl md:text-4xl text-black dark:text-white font-bold leading-tight">{title}</h1>
