@@ -6,9 +6,13 @@ import rehypeHighlight from "@shikijs/rehype";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 
+import ComponentInstallation from "@/components/component/component-installation";
 import ComponentPreview from "@/components/component/component-preview";
+import { CodeBlock } from "@/components/global/code-block";
+import { InstallationBlock } from "@/components/global/installation-block";
 import Tag from "@/components/global/tag";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { ArrowLeft02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
@@ -22,6 +26,9 @@ export async function generateStaticParams() {
 
 const components = {
   ComponentPreview,
+  ComponentInstallation,
+  InstallationBlock,
+  CodeBlock
 };
 
 export default async function ComponentPage({ params }: { params: Promise<{ slug: string }> }) {

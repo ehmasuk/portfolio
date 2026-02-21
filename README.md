@@ -40,3 +40,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 1. Create a new component in the `data/ui` directory
 2. Add the component to the `component-registry.ts` file
 3. Add the docs for this component in `data/mdx-docs` directory
+4. Add component preview with filename and component name according to the component we added in `data/ui` directory

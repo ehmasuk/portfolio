@@ -1,40 +1,36 @@
 "use client";
-import { Copy01FreeIcons, Tick01Icon } from "@hugeicons/core-free-icons";
+
+import { cn as cnUtil } from "@/lib/utils";
+import { ArrowDown01Icon, Copy01FreeIcons, Tick01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useTheme } from "next-themes";
-import React from "react";
+import React, { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark, oneLight } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { Button } from "../ui/button";
 
+const cnCode = `import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}`;
+
 type CodeBlockProps = {
-  language: string;
+  code: string;
   filename: string;
-  highlightLines?: number[];
-} & (
-  | {
-      code: string;
-      tabs?: never;
-    }
-  | {
-      code?: never;
-      tabs: Array<{
-        name: string;
-        code: string;
-        language?: string;
-        highlightLines?: number[];
-      }>;
-    }
-);
+  language?: string;
+  showLineNumbers?: boolean;
+  expanded?: boolean;
+  cn?: boolean;
+};
 
-export const CodeBlock = ({ language, filename, code, highlightLines = [], tabs = [] }: CodeBlockProps) => {
+export const CodeBlock = ({ language = "javascript", filename, code, showLineNumbers = true, expanded = false, cn = false }: CodeBlockProps) => {
   const [copied, setCopied] = React.useState(false);
-  const [activeTab, setActiveTab] = React.useState(0);
-
-  const tabsExist = tabs.length > 0;
+  const [isExpanded, setIsExpanded] = useState(expanded);
 
   const copyToClipboard = async () => {
-    const textToCopy = tabsExist ? tabs[activeTab].code : code;
+    const textToCopy = cn ? cnCode : code;
     if (textToCopy) {
       await navigator.clipboard.writeText(textToCopy);
       setCopied(true);
@@ -42,61 +38,46 @@ export const CodeBlock = ({ language, filename, code, highlightLines = [], tabs 
     }
   };
 
-  const activeCode = tabsExist ? tabs[activeTab].code : code;
-  const activeLanguage = tabsExist ? tabs[activeTab].language || language : language;
-  const activeHighlightLines = tabsExist ? tabs[activeTab].highlightLines || [] : highlightLines;
+  const activeCode = cn ? cnCode : code;
 
-  const { setTheme, theme } = useTheme();
+  const { theme } = useTheme();
 
   return (
-    <div className="relative w-full rounded-md brand-border p-4">
-      <div className="flex flex-col gap-2">
-        {tabsExist && (
-          <div className="flex overflow-x-auto">
-            {tabs.map((tab, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveTab(index)}
-                className={`px-3 py-2! text-xs transition-colors ${activeTab === index ? "text-white" : "text-muted-foreground hover:text-zinc-200"}`}
-              >
-                {tab.name}
-              </button>
-            ))}
-          </div>
-        )}
-        {!tabsExist && filename && (
-          <div className="flex justify-between items-center pb-3">
-            <div className="text-xs text-muted-foreground font-mono">{filename}</div>
-            <Button variant="secondary" size="icon" onClick={copyToClipboard} className="">
-              {copied ? <HugeiconsIcon icon={Tick01Icon} className="text-emerald-500" strokeWidth={3} /> : <HugeiconsIcon icon={Copy01FreeIcons} />}
-            </Button>
-          </div>
-        )}
+    <div className="relative">
+      <div className={cnUtil("relative w-full rounded-md brand-border p-4 not-prose", !isExpanded && "max-h-[400px] overflow-y-hidden mask-b-from-70")}>
+        {/* topbar */}
+        <div className="flex justify-between items-center pb-2">
+          <div className="text-xs text-muted-foreground font-mono">{filename}</div>
+          <Button variant="secondary" size="icon" onClick={copyToClipboard} className="">
+            {copied ? <HugeiconsIcon icon={Tick01Icon} className="text-emerald-500" strokeWidth={3} /> : <HugeiconsIcon icon={Copy01FreeIcons} />}
+          </Button>
+        </div>
+        {/* code */}
+        <SyntaxHighlighter
+          language={language}
+          style={theme === "dark" ? oneDark : oneLight}
+          customStyle={{
+            margin: 0,
+            padding: 0,
+            background: "transparent",
+            fontSize: "0.875rem",
+            wordBreak: "break-all",
+            whiteSpace: "pre-wrap",
+          }}
+          wrapLines={true}
+          showLineNumbers={showLineNumbers}
+          PreTag="div"
+        >
+          {String(activeCode)}
+        </SyntaxHighlighter>
       </div>
-      <SyntaxHighlighter
-        language={activeLanguage}
-        style={theme === "dark" ? oneDark : oneLight}
-        customStyle={{
-          margin: 0,
-          padding: 0,
-          background: "transparent",
-          fontSize: "0.875rem",
-          wordBreak: "break-all",
-          whiteSpace: "pre-wrap",
-        }}
-        wrapLines={true}
-        showLineNumbers={true}
-        lineProps={(lineNumber) => ({
-          style: {
-            backgroundColor: activeHighlightLines.includes(lineNumber) ? "rgba(255,255,255,0.1)" : "transparent",
-            display: "block",
-            width: "100%",
-          },
-        })}
-        PreTag="div"
-      >
-        {String(activeCode)}
-      </SyntaxHighlighter>
+      {/* extender */}
+      {!isExpanded && (
+        <Button variant="secondary" size="lg" onClick={() => setIsExpanded(true)} className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 border border-gray-200">
+          Expand
+          <HugeiconsIcon icon={ArrowDown01Icon} />
+        </Button>
+      )}
     </div>
   );
 };

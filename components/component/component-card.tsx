@@ -14,7 +14,7 @@ function ComponentCard({ image, title, description, slug }: Props) {
     <Link href={`/component/${slug}`} className="group">
       <Card className="aspect-video overflow-hidden bg-[repeating-linear-gradient(45deg,#25252512_0px_1px,transparent_1px_10px)] dark:bg-[repeating-linear-gradient(45deg,#ffffff0a_0px_1px,transparent_1px_10px)] p-0 ">
         <Card className="translate-6 h-full group-hover:translate-0 duration-500">
-          <Image src={image} alt={title} fill className="object-cover" />
+          <Image src={image} alt={title} fill className="object-contain" />
         </Card>
       </Card>
       <div className="pl-6 py-4 rounded-md border-b border-b-background group-hover:border-gray-200 dark:group-hover:border-white/5 duration-500">

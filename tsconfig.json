@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "data/mdx-docs/realtime-collaboration.mdx"  ],
   "exclude": ["node_modules"]
 }

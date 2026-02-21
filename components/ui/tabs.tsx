@@ -71,13 +71,13 @@ Tabs.displayName = "Tabs";
 const tabsListVariants = cva("relative inline-flex items-center justify-center rounded-lg transition-all duration-300 w-full", {
   variants: {
     variant: {
-      default: "bg-secondary border border-border",
+      default: "bg-secondary",
       ghost: "bg-transparent",
       underline: "bg-transparent border-b border-border rounded-none",
     },
     size: {
-      sm: "h-9 p-1",
-      default: "h-10 p-1.5",
+      sm: "h-8 p-1",
+      default: "h-9 p-1",
       lg: "h-12 p-2",
     },
   },
@@ -88,7 +88,7 @@ const tabsListVariants = cva("relative inline-flex items-center justify-center r
 });
 
 const tabTriggerVariants = cva(
-  "relative inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 flex-1",
+  "relative inline-flex items-center justify-center whitespace-nowrap rounded-md px-2 py-1.5 text-sm font-medium transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 flex-1",
   {
     variants: {
       variant: {
