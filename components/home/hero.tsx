@@ -9,7 +9,6 @@ import { TextLoop } from "../ui/text-loop";
 
 import { motion } from "motion/react";
 import GridSection from "../global/grid-section";
-import Navigation from "../layout/navigation";
 
 export function Hero() {
   return (

@@ -9,7 +9,10 @@ function Footer() {
     <GridSection>
       <footer className="flex items-center md:justify-between justify-center flex-col md:flex-row gap-5">
         <p className="text-sm font-mono text-muted-foreground">
-          Created by <b>ehmasuk</b>
+          Designed & Developed by{" "}
+          <a href="https://github.com/ehmasuk" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+            ehmasuk
+          </a>
         </p>
         <div className="flex items-center justify-center gap-5">
           {resume.socials.map((social) => (

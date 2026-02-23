@@ -23,6 +23,9 @@ const nextConfig: NextConfig = {
       {
         hostname: "mybot-coral.vercel.app",
       },
+      {
+        hostname: "img.freepik.com",
+      },
     ],
   },
 };

@@ -24,7 +24,7 @@ const LayoutAnimation = () => {
             className="bg-primary/20 rounded-md min-h-[30px] border border-primary/10 dark:bg-primary/20 dark:border-primary/10"
             layout
             initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           />
         ))}

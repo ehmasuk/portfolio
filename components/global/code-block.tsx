@@ -64,6 +64,13 @@ export const CodeBlock = ({ language = "javascript", filename, code, showLineNum
             wordBreak: "break-all",
             whiteSpace: "pre-wrap",
           }}
+          lineProps={(lineNumber) => ({
+            style: {
+              backgroundColor: "transparent",
+              display: "block",
+              width: "100%",
+            },
+          })}
           wrapLines={true}
           showLineNumbers={showLineNumbers}
           PreTag="div"

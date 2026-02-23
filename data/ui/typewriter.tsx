@@ -36,7 +36,7 @@ function TypewriterEffect() {
   }, [currentText, isDeleting, textToType]);
 
   return (
-    <div className="relative w-full max-w-[280px] bg-white/40 dark:bg-black/20 rounded-xl border border-black/5 dark:border-white/5 p-4 min-h-[140px] shadow-sm overflow-hidden">
+    <div className="relative w-full max-w-[280px] bg-white/40 dark:bg-black/20 rounded-xl p-4 min-h-[140px] overflow-hidden">
       <div className="flex items-center gap-2 mb-3 border-b border-black/5 dark:border-white/5 pb-2">
         <HugeiconsIcon icon={Edit02Icon} size={12} className="text-muted-foreground" />
         <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Draft</span>
