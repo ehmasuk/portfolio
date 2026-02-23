@@ -1,10 +1,10 @@
 import GridSection from "@/components/global/grid-section";
-import WeeklyBars from "@/data/ui/weekly-bars";
+import AddUser from "@/data/ui/real-time-presence";
 
 function page() {
   return (
     <GridSection>
-      <WeeklyBars />
+      <AddUser />
     </GridSection>
   );
 }

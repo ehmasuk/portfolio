@@ -27,7 +27,7 @@ type CodeBlockProps = {
 
 export const CodeBlock = ({ language = "javascript", filename, code, showLineNumbers = true, expanded = false, cn = false }: CodeBlockProps) => {
   const [copied, setCopied] = React.useState(false);
-  const [isExpanded, setIsExpanded] = useState(expanded);
+  const [isExpanded, setIsExpanded] = useState(cn ? true : expanded);
 
   const copyToClipboard = async () => {
     const textToCopy = cn ? cnCode : code;
