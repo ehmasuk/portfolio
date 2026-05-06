@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Header from "@/components/blog/header";
 import GridSection from "@/components/global/grid-section";
 import { getAllBlogs } from "@/lib/get-all-blogs";
@@ -6,6 +7,40 @@ import { BlogType } from "@/types";
 import rehypeHighlight from "@shikijs/rehype";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const blog = getSingleBlog(slug);
+
+  if (!blog) {
+    return {};
+  }
+
+  return {
+    title: blog.title,
+    description: blog.description,
+    openGraph: {
+      title: blog.title,
+      description: blog.description,
+      type: "article",
+      url: `https://ehmasuk.com/blog/${slug}`,
+      images: [
+        {
+          url: blog.image || "/og.png",
+          width: 1200,
+          height: 630,
+          alt: blog.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: blog.title,
+      description: blog.description,
+      images: [blog.image || "/og.png"],
+    },
+  };
+}
 
 export async function generateStaticParams() {
   const blogs = getAllBlogs();

@@ -3,8 +3,43 @@ import { getAllComponents } from "@/lib/get-all-components";
 import { getSingleComponent } from "@/lib/get-single-component";
 import { ComponentType } from "@/types";
 import rehypeHighlight from "@shikijs/rehype";
+import { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const component = getSingleComponent(slug);
+
+  if (!component) {
+    return {};
+  }
+
+  return {
+    title: component.title,
+    description: component.description,
+    openGraph: {
+      title: component.title,
+      description: component.description,
+      type: "website",
+      url: `https://ehmasuk.com/component/${slug}`,
+      images: [
+        {
+          url: component.image || "/og.png",
+          width: 1200,
+          height: 630,
+          alt: component.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: component.title,
+      description: component.description,
+      images: [component.image || "/og.png"],
+    },
+  };
+}
 
 import ComponentInstallation from "@/components/component/component-installation";
 import ComponentPreview from "@/components/component/component-preview";
@@ -12,7 +47,6 @@ import { CodeBlock } from "@/components/global/code-block";
 import { InstallationBlock } from "@/components/global/installation-block";
 import Tag from "@/components/global/tag";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { ArrowLeft02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
@@ -28,7 +62,7 @@ const components = {
   ComponentPreview,
   ComponentInstallation,
   InstallationBlock,
-  CodeBlock
+  CodeBlock,
 };
 
 export default async function ComponentPage({ params }: { params: Promise<{ slug: string }> }) {

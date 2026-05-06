@@ -17,8 +17,49 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Eh Masuk",
-  description: "Fullstack Developer",
+  metadataBase: new URL("https://ehmasuk.com"), // Replace with your actual domain
+  title: {
+    default: "Eh Masuk | Fullstack Developer",
+    template: "%s | Eh Masuk",
+  },
+  description: "Emdadul Haque (Eh Masuk) - Fullstack Developer specializing in MERN stack and modern web technologies.",
+  keywords: ["Emdadul Haque", "Eh Masuk", "Fullstack Developer", "MERN Stack", "Next.js", "React", "Portfolio"],
+  authors: [{ name: "Emdadul Haque", url: "https://github.com/ehmasuk" }],
+  creator: "Emdadul Haque",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://ehmasuk.com",
+    title: "Eh Masuk | Fullstack Developer",
+    description: "Emdadul Haque (Eh Masuk) - Fullstack Developer specializing in MERN stack and modern web technologies.",
+    siteName: "Eh Masuk Portfolio",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Eh Masuk Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Eh Masuk | Fullstack Developer",
+    description: "Emdadul Haque (Eh Masuk) - Fullstack Developer specializing in MERN stack and modern web technologies.",
+    creator: "@eh_masuk",
+    images: ["/opengraph-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
