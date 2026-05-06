@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     siteName: "Eh Masuk Portfolio",
     images: [
       {
-        url: "/opengraph-image.png",
+        url: "/og.png",
         width: 1200,
         height: 630,
         alt: "Eh Masuk Portfolio",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     title: "Eh Masuk | Fullstack Developer",
     description: "Emdadul Haque (Eh Masuk) - Fullstack Developer specializing in MERN stack and modern web technologies.",
     creator: "@eh_masuk",
-    images: ["/opengraph-image.png"],
+    images: ["/og.png"],
   },
   robots: {
     index: true,
