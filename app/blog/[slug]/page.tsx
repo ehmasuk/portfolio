@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: blog.title,
       description: blog.description,
       type: "article",
-      url: `https://ehmasuk.com/blog/${slug}`,
+      url: `${process.env.NEXT_PUBLIC_URL}/blog/${slug}`,
       images: [
         {
           url: blog.image || "/og.png",

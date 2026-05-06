@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ehmasuk.com"), // Replace with your actual domain
+  metadataBase: new URL(process.env.NEXT_PUBLIC_URL as string),
   title: {
     default: "Eh Masuk | Fullstack Developer",
     template: "%s | Eh Masuk",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://ehmasuk.com",
+    url: process.env.NEXT_PUBLIC_URL,
     title: "Eh Masuk | Fullstack Developer",
     description: "Emdadul Haque (Eh Masuk) - Fullstack Developer specializing in MERN stack and modern web technologies.",
     siteName: "Eh Masuk Portfolio",

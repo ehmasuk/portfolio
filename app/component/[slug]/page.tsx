@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: component.title,
       description: component.description,
       type: "website",
-      url: `https://ehmasuk.com/component/${slug}`,
+      url: `${process.env.NEXT_PUBLIC_URL}/component/${slug}`,
       images: [
         {
           url: component.image || "/og.png",
