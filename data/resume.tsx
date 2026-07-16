@@ -77,6 +77,16 @@ export const resume: Props = {
   projects: [
     {
       id: 1,
+      title: "Real IELTS",
+      description: "A platform for IELTS preparation",
+      stack: ["Next.js", "TypeScript", "Tailwind CSS", "Auth.js"],
+      sourceCode: "https://github.com/ehmasuk/real-ielts",
+      liveDemo: "https://real-ielts.vercel.app",
+      category: "IELTS preparation platform",
+      favicon: "https://real-ielts.vercel.app/favicon.ico",
+    },
+    {
+      id: 2,
       title: "PinPad",
       description: "A free note sharing app with live collaboration.",
       stack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
@@ -86,7 +96,7 @@ export const resume: Props = {
       favicon: "https://pinpad.vercel.app/favicon.ico",
     },
     {
-      id: 2,
+      id: 3,
       title: "BookOra",
       description: "A free online platform where users can create books.",
       stack: ["NextJS", "Tailwind", "Typescript", "MongoDB", "NodeJS"],
@@ -96,7 +106,7 @@ export const resume: Props = {
       favicon: "https://bookora.vercel.app/favicon.ico",
     },
     {
-      id: 3,
+      id: 4,
       title: "Easybuy",
       description: "Ecommerce website with Admin panel and Stripe payment integration",
       stack: ["NextJS", "Tailwind", "Typescript", "MongoDB", "NodeJS", "Stripe", "Prisma"],
@@ -106,7 +116,7 @@ export const resume: Props = {
       favicon: "https://eazybuy-rho.vercel.app/favicon.ico",
     },
     {
-      id: 4,
+      id: 5,
       title: "FreeClip",
       description: "Desktop screen recorder",
       stack: ["NextJS", "Tailwind", "Typescript"],
@@ -116,7 +126,7 @@ export const resume: Props = {
       favicon: "https://freeclip.vercel.app/favicon.ico",
     },
     {
-      id: 5,
+      id: 6,
       title: "WeTravel",
       category: "Travel agency website for client",
       description: "A travel agency website for client",
@@ -125,7 +135,7 @@ export const resume: Props = {
       favicon: "https://wetravel.pk/favicon.png",
     },
     {
-      id: 6,
+      id: 7,
       title: "MyBot",
       description: "AI-powered chatbot platform with user authentication.",
       stack: ["NextJS", "Tailwind", "Typescript"],
