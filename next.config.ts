@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
+        hostname: "real-ielts.vercel.app",
+      },
+      {
         hostname: "pinpad.vercel.app",
       },
       {
@@ -16,9 +19,6 @@ const nextConfig: NextConfig = {
       },
       {
         hostname: "eazybuy-rho.vercel.app",
-      },
-      {
-        hostname: "wetravel.pk",
       },
       {
         hostname: "mybot-coral.vercel.app",

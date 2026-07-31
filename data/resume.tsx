@@ -127,15 +127,6 @@ export const resume: Props = {
     },
     {
       id: 6,
-      title: "WeTravel",
-      category: "Travel agency website for client",
-      description: "A travel agency website for client",
-      stack: ["Laravel", "PHP", "MySQL", "Bootstrap"],
-      liveDemo: "https://wetravel.pk/",
-      favicon: "https://wetravel.pk/favicon.png",
-    },
-    {
-      id: 7,
       title: "MyBot",
       description: "AI-powered chatbot platform with user authentication.",
       stack: ["NextJS", "Tailwind", "Typescript", "Langchain","Pinecone"],
