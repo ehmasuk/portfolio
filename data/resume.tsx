@@ -58,13 +58,13 @@ export const resume: Props = {
         "Collaborated with developers using Git ",
         "Quickly learned and implemented new features from documentation.",
       ],
-      workingPeriod: "Nov,2023 - June,2025",
+      workingPeriod: "November 2022 - April 2025",
       skills: ["Nextjs", "Typescript", "Nodejs", "Tailwindcss", "LangChain", "Pinecone"],
     },
     {
       id: 2,
       companyName: "Freelance",
-      position: "Front End Developer",
+      position: "Front End Developer | Remote | Part-Time",
       responsibilities: [
         "Developed and maintained web applications using React and Node.js",
         "Collaborated with cross-functional teams to deliver high-quality software",
