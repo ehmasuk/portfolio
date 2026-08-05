@@ -58,7 +58,7 @@ export const resume: Props = {
         "Collaborated with developers using Git ",
         "Quickly learned and implemented new features from documentation.",
       ],
-      workingPeriod: "Nov,2023 - June,2026",
+      workingPeriod: "Nov,2023 - June,2025",
       skills: ["Nextjs", "Typescript", "Nodejs", "Tailwindcss", "LangChain", "Pinecone"],
     },
     {
