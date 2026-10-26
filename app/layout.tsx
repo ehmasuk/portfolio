@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Eh Masuk",
   },
   description: "Emdadul Haque (Eh Masuk) - Fullstack Developer specializing in MERN stack and modern web technologies.",
-  keywords: ["Emdadul Haque", "Eh Masuk", "Fullstack Developer", "MERN Stack", "Next.js", "React", "Portfolio"],
+  keywords: ["Emdadul Haque", "Eh Masuk","ehmasuk","Fullstack Developer", "MERN Stack", "Next.js", "React", "Emdadul Haque Masuk","Masuk","Mashuk","Emdadul","Haque"],
   authors: [{ name: "Emdadul Haque", url: "https://github.com/ehmasuk" }],
   creator: "Emdadul Haque",
   openGraph: {

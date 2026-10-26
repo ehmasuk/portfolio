@@ -98,7 +98,7 @@ export const resume: Props = {
     {
       id: 3,
       title: "BookOra",
-      description: "A free online platform where users can create books.",
+      description: "Free online platform where users can create books.",
       stack: ["NextJS", "Typescript", "MongoDB", "NodeJS", "Swagger", "JWT"],
       sourceCode: "https://github.com/ehmasuk/bookora",
       liveDemo: "https://bookora.vercel.app",
@@ -107,6 +107,16 @@ export const resume: Props = {
     },
     {
       id: 4,
+      title: "Live TV",
+      description: "Live streaming platform",
+      stack: ["NextJS", "Typescript", "hls.js", "Tailwindcss", "PWA"],
+      sourceCode: "https://github.com/ehmasuk/livetv",
+      liveDemo: "https://livetvfree.vercel.app",
+      category: "Live streaming platform",
+      favicon: "https://livetvfree.vercel.app/favicon.ico",
+    },
+    {
+      id: 5,
       title: "Easybuy",
       description: "Ecommerce website with Admin panel and Stripe payment integration",
       stack: ["NextJS", "Tailwind", "Typescript", "MongoDB", "NodeJS", "Stripe", "Prisma"],
@@ -116,7 +126,7 @@ export const resume: Props = {
       favicon: "https://eazybuy-rho.vercel.app/favicon.ico",
     },
     {
-      id: 5,
+      id: 6,
       title: "FreeClip",
       description: "Desktop screen recorder",
       stack: ["NextJS", "Tailwind", "Typescript"],
@@ -124,16 +134,6 @@ export const resume: Props = {
       liveDemo: "https://freeclip.vercel.app/",
       category: "Desktop screen recorder",
       favicon: "https://freeclip.vercel.app/favicon.ico",
-    },
-    {
-      id: 6,
-      title: "MyBot",
-      description: "AI-powered chatbot platform with user authentication.",
-      stack: ["NextJS", "Tailwind", "Typescript", "Langchain","Pinecone"],
-      sourceCode: "https://github.com/ehmasuk/mybot",
-      liveDemo: "https://mybot-coral.vercel.app/",
-      category: "AI-powered chatbot platform",
-      favicon: "https://mybot-coral.vercel.app/favicon.ico",
-    },
+    }
   ],
 };
